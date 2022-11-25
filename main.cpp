@@ -10,13 +10,13 @@
 
 
 void getinput();
-void integrate();
-void output();
+//void integrate();
+//void output();
 
 int main(){
     getinput();
-    integrate();
-    output();
+    //integrate();
+    // output();
     return 0;
 }
 

@@ -17,6 +17,7 @@ Domain::Domain(){
 
 // Domain in 2D: [a,b][c,d]
 Domain::Domain(double (*v)[2]) {
+
     intervals[0][0]=v[0][0];
     intervals[0][1]=v[0][1];
     intervals[1][0]=v[1][0];
@@ -24,30 +25,38 @@ Domain::Domain(double (*v)[2]) {
 }
 
 Domain::Domain(double a, double b, double c, double d) {
+
     intervals[0][0] = a;
     intervals[0][1] = b;
     intervals[1][0] = c;
     intervals[1][1] = d;
 }
+
 // Domain in 1D: [a,b]
 Domain::Domain(double a, double b) {
+
     intervals[0][0]=a;
     intervals[0][1]=b;
 }
 
 //Check the domain:
 void Domain::checkDomain(){
+
     assert((intervals[0][0])<=(intervals[0][1]) && (intervals[1][0])<= (intervals[1][1])); //a<=b and c<=d
 }
 
-//access to the intervals:
+//Access to the intervals:
 auto* Domain::getIntervals() {
+
     return intervals;
 }
 
+// Partition our interval for 1D:
 void Domain::grid() {
+
     // Calculate the partition interval H
     double H = (intervals[0][0]-intervals[0][1])/M;
+
     // Create a vector of xk values:
     std::vector<double> xk;
     for(int k=0; k<=M; k++){
