@@ -1,6 +1,9 @@
 //
 // Created by Leonardo Trentini on 25/11/2022.
 //
+
+//I defined a class Domain, maybe we should add "grid" or make onther class "grid"?
+
 #ifndef DOMAIN_HPP_
 #define DOMAIN_HPP_
 

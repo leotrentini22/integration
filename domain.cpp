@@ -1,6 +1,8 @@
 //
 // Created by Leonardo Trentini on 25/11/2022.
 //
+
+//File with the methods for the class Domain defined in "domain.hpp" -- not finished
 #include "domain.hpp"
 Domain::Domain(){
 
