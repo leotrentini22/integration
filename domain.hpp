@@ -8,17 +8,25 @@
 #define DOMAIN_HPP_
 
 #include <ostream>
+#include <cassert>
 class Domain{
 private:
     double intervals[2][2];
+    int M;
 public:
+    // Constructor:
     Domain();
     Domain(double v[2][2]);
     Domain(double a, double b, double c, double d);
     Domain(double a, double b);
+
+    //Destructor:
     ~Domain();
+
+    //Method:
     void checkDomain();
-    double* getIntervals();
+    auto* getIntervals();
+    void grid();
 };
 
 #endif /* DOMAIN_HPP_ */

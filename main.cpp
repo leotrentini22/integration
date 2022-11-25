@@ -28,7 +28,7 @@ void getinput(){
     int a,b;
     do{
     std::cout<<"Choose the function to use. Insert: \n 1 = polinomial \n 2 = sinusoidal \n 3 = exponential \nThen press ENTER";
-    std::cin>>a;}while(a<0 || a>3)
+    std::cin>>a;}while(a<0 || a>3);
     if(a==1){
         std::cout<<"Choose the function to use. Insert: \n 1 = x \n 2 = x^2 \n 3 = sqrt(x) \nThen press ENTER";
         std::cin>>b;

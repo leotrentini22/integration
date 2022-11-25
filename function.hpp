@@ -11,11 +11,15 @@ class Function{
 private:
     double (*p_function)(double x,double y);
 public:
+    // Constructor:
     Function();
     Function(double (*p_function)(double x));
     Function(double (*p_function)(double x, double y));
     Function(double (*p_function1)(double x), double (*p_function2)(double y));
+    // Destructor:
     ~Function();
+
+    //Method:
     double getFunctionElement(double x, double y);
 
 };
