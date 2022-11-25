@@ -27,10 +27,10 @@ The repository contains the code and report for the Programming Concepts in Scie
 - Leonardo Trentini: [@leotrentini22](https://github.com/leotrentini22)
 - Odile Montarnal: [@Dod-il](https://github.com/Dod-il)
 
-##Structure
+## Structure
 
 To do
 
-##Usage
+## Usage
 
 To do
