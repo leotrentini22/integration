@@ -3,4 +3,4 @@ project(integration)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(main main.cpp function.cpp domain.cpp)
+add_executable(main main.cpp function.cpp domain.cpp MidpointIntegration.cpp AbstractIntegration.cpp)

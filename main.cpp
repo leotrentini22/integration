@@ -7,16 +7,28 @@
 #include <fstream>
 #include "domain.hpp"
 #include "function.hpp"
+#include "AbstractIntegration.hpp"
+#include "MidpointIntegration.hpp"
 
-
-void getinput();
-void integrate();
-void output();
+double fRhs(double x) { return 1; }
 
 int main(){
-    getinput();
-    integrate();
-    output();
+    double initialX = 0.0;
+    double finalX = 1.0;
+
+    AbstractIntegration *pIntegration = 0;
+
+    // Solving with forward-Euler
+    double N=10;
+    pIntegration = new MidpointIntegration;
+    pIntegration->SetNumberOfPartitions(N);
+    pIntegration->SetExtremes(initialX,finalX);
+    pIntegration->SetFunction(fRhs);
+
+    double result;
+    result = pIntegration->Integrate();
+    std::cout<<result;
+
     return 0;
 }
 
