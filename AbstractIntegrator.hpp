@@ -37,9 +37,9 @@ public:
     virtual double Integrate() = 0;
 
     // Get methods
-    double GetFinalExtreme() const { return x0; }
+    double GetFinalExtreme() const { return xN; }
 
-    double GetFirstExtreme() const { return xN; }
+    double GetFirstExtreme() const { return x0; }
 
     double GetStepSize() const { return (xN-x0)/(double)(N_partitions); }
 

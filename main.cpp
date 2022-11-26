@@ -2,32 +2,55 @@
 // Created by Odile on 25.11.2022.
 //
 
-//It would be nice to make the domain as concise as possible, here an idea
+//Structure for now, working in 1 Dimension:
+// AbstractIntegrator = Abstract class of integrators, with 3 derived classes
+// MidpointIntegrator, TrapezoidalIntegrator, SimpsonIntegrator
+
+//next things to do:
+// - extend in 2d
+// - different ways of managing the result (for example, write down in a file)
+// - computing accuracy
+// - extend for function chosen by the user, without coding
+// - extend for stranger domains
+// - plot
+
+
 #include <iostream>
 #include <fstream>
 #include "domain.hpp"
 #include "function.hpp"
 #include "AbstractIntegrator.hpp"
 #include "MidpointIntegrator.hpp"
+#include "TrapezoidalIntegrator.hpp"
+#include "SimpsonIntegrator.hpp"
 
-double fRhs(double x) { return 1; }
+
+// here you can set whatever function you would like to integrate, 1 Dimension
+double f_to_integrate(double x) { return x*x; }
 
 int main(){
+
+    // set domain extremes, 1 Dimension
     double initialX = 0.0;
     double finalX = 1.0;
 
     AbstractIntegrator *pIntegration = 0;
 
-    // Solving with forward-Euler
     double N=10;
-    pIntegration = new MidpointIntegrator;
+
+    // to change Integrator, put new NameIntegrator (Name = Midpoint, Trapezoidal or Simpson)
+    pIntegration = new SimpsonIntegrator;
     pIntegration->SetNumberOfPartitions(N);
     pIntegration->SetExtremes(initialX,finalX);
-    pIntegration->SetFunction(fRhs);
+    pIntegration->SetFunction(f_to_integrate);
 
     double result;
     result = pIntegration->Integrate();
+
+    // we print the result
     std::cout<<result;
+
+
 
     return 0;
 }
