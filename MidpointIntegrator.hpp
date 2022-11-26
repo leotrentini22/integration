@@ -2,12 +2,12 @@
 #define MIDPOINTINTEGRATION_HPP_
 
 #include <ostream>
-#include "AbstractIntegration.hpp"
+#include "AbstractIntegrator.hpp"
 
-class MidpointIntegration : public AbstractIntegration {
+class MidpointIntegrator : public AbstractIntegrator {
 public:
-    MidpointIntegration();
-    virtual ~MidpointIntegration();
+    MidpointIntegrator();
+    virtual ~MidpointIntegrator();
 
     virtual double Integrate() override;
 };

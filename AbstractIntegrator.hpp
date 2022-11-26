@@ -1,5 +1,5 @@
 /*
- * AbstractIntegration.hpp
+ * AbstractIntegrator.hpp
  *
  *  Created on: Oct 25, 2012
  *      Author: Leonardo Trentini
@@ -11,12 +11,12 @@
 
 //initialized, not finished
 
-#ifndef ABSTRACTINTEGRATION_HPP_
-#define ABSTRACTINTEGRATION_HPP_
+#ifndef ABSTRACTINTEGRATOR_HPP_
+#define ABSTRACTINTEGRATOR_HPP_
 
 #include <ostream>
 
-class AbstractIntegration {
+class AbstractIntegrator {
 private:
     double x0;
     double xN;
@@ -24,9 +24,9 @@ private:
     double (*function)(double x);
 public:
     // Constructor and destructor
-    AbstractIntegration();
+    AbstractIntegrator();
 
-    virtual ~AbstractIntegration();
+    virtual ~AbstractIntegrator();
 
     // Other public methods
     void SetNumberOfPartitions(const int N);
@@ -47,4 +47,4 @@ public:
 
 };
 
-#endif /* ABSTRACTINTEGRATION_HPP_ */
+#endif /* ABSTRACTINTEGRATOR_HPP_ */

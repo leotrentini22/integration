@@ -2,14 +2,14 @@
 // Created by Leonardo Trentini on 26/11/2022.
 //
 
-#include "MidpointIntegration.hpp"
+#include "MidpointIntegrator.hpp"
 #include <cmath>
 
-MidpointIntegration::MidpointIntegration() {}
+MidpointIntegrator::MidpointIntegrator() {}
 
-MidpointIntegration::~MidpointIntegration() {}
+MidpointIntegrator::~MidpointIntegrator() {}
 
-double MidpointIntegration::Integrate() {
+double MidpointIntegrator::Integrate() {
     double x0=GetFirstExtreme();
     double h=GetStepSize();
     double x_eval=(2*x0+h)/2;

@@ -7,8 +7,8 @@
 #include <fstream>
 #include "domain.hpp"
 #include "function.hpp"
-#include "AbstractIntegration.hpp"
-#include "MidpointIntegration.hpp"
+#include "AbstractIntegrator.hpp"
+#include "MidpointIntegrator.hpp"
 
 double fRhs(double x) { return 1; }
 
@@ -16,11 +16,11 @@ int main(){
     double initialX = 0.0;
     double finalX = 1.0;
 
-    AbstractIntegration *pIntegration = 0;
+    AbstractIntegrator *pIntegration = 0;
 
     // Solving with forward-Euler
     double N=10;
-    pIntegration = new MidpointIntegration;
+    pIntegration = new MidpointIntegrator;
     pIntegration->SetNumberOfPartitions(N);
     pIntegration->SetExtremes(initialX,finalX);
     pIntegration->SetFunction(fRhs);
