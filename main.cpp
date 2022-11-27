@@ -7,7 +7,6 @@
 // MidpointIntegrator, TrapezoidalIntegrator, SimpsonIntegrator
 
 //next things to do:
-// - extend Simpson in 2D
 // - computing accuracy
 // - extend for function chosen by the user, without coding
 // - extend for stranger domains
@@ -16,6 +15,7 @@
 
 
 #include <iostream>
+#include <cmath>
 #include <fstream>
 #include "domain.hpp"
 #include "function.hpp"
@@ -26,7 +26,7 @@
 
 
 // here you can set whatever function you would like to integrate, 1 Dimension
-double f_to_integrate(double x,double y) { return x*y; }
+double f_to_integrate(double x,double y) { return x*sqrt(y)*cos(y+x); }
 
 int main(){
 
@@ -38,22 +38,44 @@ int main(){
 
     AbstractIntegrator *pIntegration = 0;
 
-    double N=10;
-    double M=10;
+    // set number of partitions for x and for y
 
-    // to change Integrator, put new NameIntegrator (Name = Midpoint, Trapezoidal or Simpson)
+    double N=100;
+    double M=100;
+
+    // to change Integrator, put "new NameIntegrator" as below (Name = Midpoint, Trapezoidal or Simpson)
+
+    // Midpoint Integrator
+    pIntegration = new MidpointIntegrator;
+    pIntegration->SetNumberOfPartitions(N,M);
+    pIntegration->SetExtremes(initialX,finalX, initialY,finalY);
+    pIntegration->SetFunction(f_to_integrate);
+
+    double result_midpoint;
+    result_midpoint = pIntegration->Integrate();
+
+    // Trapezoidal Integrator
     pIntegration = new TrapezoidalIntegrator;
     pIntegration->SetNumberOfPartitions(N,M);
     pIntegration->SetExtremes(initialX,finalX, initialY,finalY);
     pIntegration->SetFunction(f_to_integrate);
 
-    double result;
-    result = pIntegration->Integrate();
+    double result_trapezoidal;
+    result_trapezoidal = pIntegration->Integrate();
 
-    // we print the result
-    std::cout<<result;
+    // Simpson Integrator
+    pIntegration = new SimpsonIntegrator;
+    pIntegration->SetNumberOfPartitions(N,M);
+    pIntegration->SetExtremes(initialX,finalX, initialY,finalY);
+    pIntegration->SetFunction(f_to_integrate);
 
+    double result_simpson;
+    result_simpson = pIntegration->Integrate();
 
+    // print the results to the screen
+    std::cout<<result_midpoint<<" "<<result_trapezoidal<<" "<<result_simpson;
+
+    //you can also write down the result into a file, with the method "WriteResult" of Abstract Integrator
 
     return 0;
 }

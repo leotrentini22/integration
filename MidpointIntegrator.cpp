@@ -2,12 +2,19 @@
 // Created by Leonardo Trentini on 26/11/2022.
 //
 
+//methods for Midpoint Integrator - 1D and 2D
+
 #include "MidpointIntegrator.hpp"
 #include <cmath>
+
+// constructor and destructor
 
 MidpointIntegrator::MidpointIntegrator() {}
 
 MidpointIntegrator::~MidpointIntegrator() {}
+
+
+// integration
 
 double MidpointIntegrator::Integrate() {
     double x_first=GetFirstExtreme();
@@ -16,6 +23,8 @@ double MidpointIntegrator::Integrate() {
     int N=GetNumberofPartitions();
     int M=GetNumberofPartitionsY();
     double sum=0;
+
+    //implementation 1D (M = partitions for y == 0)
     if(M==0) {
         for (int i = 0; i < N; i++) {
             sum += Function(x_eval);
@@ -24,6 +33,8 @@ double MidpointIntegrator::Integrate() {
         result=sum*h;
         return result;
     }
+
+    // implementation 2D
     double y_first=GetFirstExtremeY();
     double k=GetStepSizeY();
     double y_eval=(2*y_first+k)/2;

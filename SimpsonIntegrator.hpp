@@ -14,6 +14,7 @@ public:
     virtual ~SimpsonIntegrator();
 
     virtual double Integrate() override;
+    double getCoeffS(int i, int j, int Nx, int My);
 };
 
 

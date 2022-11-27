@@ -9,8 +9,6 @@
 // - An abstract class, called abstract integration
 // - Three derived classes for Midpoint, Trapezoidal, Cavalieri-Simpson
 
-//initialized, not finished
-
 #ifndef ABSTRACTINTEGRATOR_HPP_
 #define ABSTRACTINTEGRATOR_HPP_
 
@@ -26,9 +24,11 @@ private:
     double y0;
     double yM;
 
+    //number of partitions
     int N_partitions; // on x dimension
     int M_partitions; // on y dimension
 
+    //function to integrate, 1D and 2D (I don't know how to put a single function that works for both, there is a problem with pointers)
     double (*function1D)(double x); // 1D
 
     double (*function2D)(double x, double y); // 2D
@@ -90,7 +90,6 @@ public:
     int GetNumberofPartitionsX() const {return N_partitions;}
 
     int GetNumberofPartitionsY() const {return M_partitions;}
-
 
     // Write down result to file
 
