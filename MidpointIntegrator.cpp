@@ -28,6 +28,7 @@ double MidpointIntegrator::Integrate() {
     double k=GetStepSizeY();
     double y_eval=(2*y_first+k)/2;
     for (int i = 0; i < N; i++) {
+        y_eval=(2*y_first+k)/2;
         for (int j = 0; j < M; j++){
             sum += Function(x_eval,y_eval);
             y_eval = y_eval + k;

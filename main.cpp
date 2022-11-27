@@ -7,10 +7,11 @@
 // MidpointIntegrator, TrapezoidalIntegrator, SimpsonIntegrator
 
 //next things to do:
-// - extend in 2d (currently extending midpoint formula in 2D, seems not working)
+// - extend Simpson in 2D
 // - computing accuracy
 // - extend for function chosen by the user, without coding
 // - extend for stranger domains
+// - let the possibility for the user to calculate another integral without restarting the program
 // - plot
 
 
@@ -25,7 +26,7 @@
 
 
 // here you can set whatever function you would like to integrate, 1 Dimension
-double f_to_integrate(double x, double y) { return x*y; }
+double f_to_integrate(double x,double y) { return x*y; }
 
 int main(){
 
@@ -38,12 +39,12 @@ int main(){
     AbstractIntegrator *pIntegration = 0;
 
     double N=10;
-    double M=20;
+    double M=10;
 
     // to change Integrator, put new NameIntegrator (Name = Midpoint, Trapezoidal or Simpson)
-    pIntegration = new MidpointIntegrator;
+    pIntegration = new TrapezoidalIntegrator;
     pIntegration->SetNumberOfPartitions(N,M);
-    pIntegration->SetExtremes(initialX,finalX,initialY,finalY);
+    pIntegration->SetExtremes(initialX,finalX, initialY,finalY);
     pIntegration->SetFunction(f_to_integrate);
 
     double result;
