@@ -22,7 +22,8 @@ double TrapezoidalIntegrator::Integrate() {
         xnew=xnew+h;
     }
 
-    return sum*h/2;
+    result=sum*h/2;
+    return result;
 
 }
 

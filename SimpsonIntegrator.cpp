@@ -16,15 +16,21 @@ double SimpsonIntegrator::Integrate() {
     double h=GetStepSize();
     double xold=x0;
     double xnew=x0+h;
-    int N=GetNumberofPartitions();
-    double sum=0;
-    for (int i=0;i<N;i++){
-        sum+= Function(xold)+Function(xnew)+4*Function((xold+xnew)/2);
-        xold=xnew;
-        xnew=xnew+h;
-    }
+    int N=GetNumberofPartitionsX();
+    //int M=GetNumberofPartitionsY();
+    double sum = 0;
+    //if(M==0) {
+        for (int i = 0; i < N; i++) {
+            sum += Function(xold) + Function(xnew) + 4 * Function((xold + xnew) / 2);
+            xold = xnew;
+            xnew = xnew + h;
+        }
 
-    return sum*h/6;
+        result = sum * h / 6;
+        return result;
+    //}
+
+
 
 }
 
