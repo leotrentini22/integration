@@ -2,21 +2,81 @@
 // Created by Odile on 25.11.2022.
 //
 
-//It would be nice to make the domain as concise as possible, here an idea
+//Structure for now, working in 1 Dimension:
+// AbstractIntegrator = Abstract class of integrators, with 3 derived classes
+// MidpointIntegrator, TrapezoidalIntegrator, SimpsonIntegrator
+
+//next things to do:
+// - computing accuracy
+// - extend for function chosen by the user, without coding
+// - extend for stranger domains
+// - let the possibility for the user to calculate another integral without restarting the program
+// - plot
+
+
 #include <iostream>
+#include <cmath>
 #include <fstream>
 #include "domain.hpp"
 #include "function.hpp"
+#include "AbstractIntegrator.hpp"
+#include "MidpointIntegrator.hpp"
+#include "TrapezoidalIntegrator.hpp"
+#include "SimpsonIntegrator.hpp"
 
 
-void getinput();
-//void integrate();
-//void output();
+// here you can set whatever function you would like to integrate, 1 Dimension
+double f_to_integrate(double x,double y) { return x*sqrt(y)*cos(y+x); }
 
 int main(){
-    getinput();
-    //integrate();
-    // output();
+
+    // set domain extremes, 1 Dimension
+    double initialX = 0.0;
+    double finalX = 1.0;
+    double initialY = 0.0;
+    double finalY = 1.0;
+
+    AbstractIntegrator *pIntegration = 0;
+
+    // set number of partitions for x and for y
+
+    double N=100;
+    double M=100;
+
+    // to change Integrator, put "new NameIntegrator" as below (Name = Midpoint, Trapezoidal or Simpson)
+
+    // Midpoint Integrator
+    pIntegration = new MidpointIntegrator;
+    pIntegration->SetNumberOfPartitions(N,M);
+    pIntegration->SetExtremes(initialX,finalX, initialY,finalY);
+    pIntegration->SetFunction(f_to_integrate);
+
+    double result_midpoint;
+    result_midpoint = pIntegration->Integrate();
+
+    // Trapezoidal Integrator
+    pIntegration = new TrapezoidalIntegrator;
+    pIntegration->SetNumberOfPartitions(N,M);
+    pIntegration->SetExtremes(initialX,finalX, initialY,finalY);
+    pIntegration->SetFunction(f_to_integrate);
+
+    double result_trapezoidal;
+    result_trapezoidal = pIntegration->Integrate();
+
+    // Simpson Integrator
+    pIntegration = new SimpsonIntegrator;
+    pIntegration->SetNumberOfPartitions(N,M);
+    pIntegration->SetExtremes(initialX,finalX, initialY,finalY);
+    pIntegration->SetFunction(f_to_integrate);
+
+    double result_simpson;
+    result_simpson = pIntegration->Integrate();
+
+    // print the results to the screen
+    std::cout<<result_midpoint<<" "<<result_trapezoidal<<" "<<result_simpson;
+
+    //you can also write down the result into a file, with the method "WriteResult" of Abstract Integrator
+
     return 0;
 }
 
