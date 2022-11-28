@@ -17,6 +17,7 @@
 #include <iostream>
 #include <cmath>
 #include <fstream>
+#include <vector>
 #include "domain.hpp"
 #include "function.hpp"
 #include "AbstractIntegrator.hpp"
@@ -29,14 +30,16 @@
 double f_to_integrate(double x,double y) { return x*sqrt(y)*cos(y+x); }
 
 // here you can compose your function:
-double function(double x){
-    double function = x;
-    int f = 0;
-    int c = 0;
 
-    while(f>=0) {
-        std::cout<< "Choose sin = 1, cos = 2, exp = 3, add a constant = 4, multiply by a constant = 5 or stop =-1 "<< std::endl;
-        std::cin >> f;
+
+double function(double x,std::vector<int> forder,std::vector<int> corder){
+    double function = x;
+    int i;
+    int j=0;
+    for (i =0; i<=forder.size();i++) {
+        int f = forder[i];
+        int c = corder[j];
+
         if (f == 1) {
             function = sin(function);
         }
@@ -46,21 +49,45 @@ double function(double x){
         if (f == 3) {
             function = exp(function);
         }
-        if (f == 4){
-            std::cout<<"Value of the constant added: "<< std::endl;
-            std::cin>> c;
+        if (f == 4) {
             function = function + c;
+            j++;
         }
-        if (f == 5){
-            std::cout<<"Value of the constant: "<< std::endl;
-            std::cin>> c;
-            function = function*c;
+        if (f == 5) {
+            function = function * c;
+            j++;
         }
+
     }
     return function;
 }
 
 int main(){
+
+    std::vector<int> forder;
+    std::vector<int> corder;
+
+    int f =0;
+    int c = 0;
+
+    while (f >= 0) {
+        std::cout << "Choose sin = 1, cos = 2, exp = 3, add a constant = 4, multiply by a constant = 5 or stop =-1 "
+                  << std::endl;
+        std::cin >> f;
+
+        forder.push_back(f);
+        if (f == 4) {
+            std::cout << "Value of the constant added: " << std::endl;
+            std::cin >> c;
+            corder.push_back(c);
+
+        }
+        if (f == 5) {
+            std::cout << "Value of the constant: " << std::endl;
+            std::cin >> c;
+            corder.push_back(c);
+        }
+    }
 
     // set domain extremes, 1 Dimension
     double initialX = 0.0;
