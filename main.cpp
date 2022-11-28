@@ -7,7 +7,7 @@
 // MidpointIntegrator, TrapezoidalIntegrator, SimpsonIntegrator
 
 //next things to do:
-// - computing accuracy
+// - computing accuracy -> accuracy can be plotted if we know the exact integral
 // - extend for function chosen by the user, without coding
 // - extend for stranger domains
 // - let the possibility for the user to calculate another integral without restarting the program
@@ -27,6 +27,38 @@
 
 // here you can set whatever function you would like to integrate, 1 Dimension
 double f_to_integrate(double x,double y) { return x*sqrt(y)*cos(y+x); }
+
+// here you can compose your function:
+double function(double x){
+    double function = x;
+    int f = 0;
+    int c = 0;
+
+    while(f>=0) {
+        std::cout<< "Choose sin = 1, cos = 2, exp = 3, add a constant = 4, multiply by a constant = 5 or stop =-1 "<< std::endl;
+        std::cin >> f;
+        if (f == 1) {
+            function = sin(function);
+        }
+        if (f == 2) {
+            function = cos(function);
+        }
+        if (f == 3) {
+            function = exp(function);
+        }
+        if (f == 4){
+            std::cout<<"Value of the constant added: "<< std::endl;
+            std::cin>> c;
+            function = function + c;
+        }
+        if (f == 5){
+            std::cout<<"Value of the constant: "<< std::endl;
+            std::cin>> c;
+            function = function*c;
+        }
+    }
+    return function;
+}
 
 int main(){
 
