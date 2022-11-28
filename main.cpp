@@ -38,13 +38,6 @@ double f_to_integrate(double x,double y) { return x*y; }
 
 
 // here you can compose your function:
-<<<<<<< HEAD
-double setfunction(double x){
-    double function=x;
-    int f = 0;
-    double c = 0.0;
-=======
->>>>>>> fe5cdb30a74bcc41f76c3214c11a947ca1ad5b03
 
 
 double function(double x,std::vector<int> forder,std::vector<int> corder){
@@ -79,7 +72,7 @@ double function(double x,std::vector<int> forder,std::vector<int> corder){
 
 int main(){
 
-<<<<<<< HEAD
+
     //initialize variables
     double initialX, finalX, initialY, finalY = 0.0;
     double N,M;
@@ -118,7 +111,7 @@ int main(){
         std::cout<<"\nSet method to integrate:\n - insert 1 for Midpoint \n - insert 2 for Trapezoidal \n - insert 3 for Cavalieri-Simpson\nif input is not 1, 2 or 3, will be used 1 as standard\nMETHOD: ";
         std::cin>> m;
     }while(m<0||m>3);
-=======
+
     std::vector<int> forder;
     std::vector<int> corder;
 
@@ -143,13 +136,6 @@ int main(){
             corder.push_back(c);
         }
     }
-
-    // set domain extremes, 1 Dimension
-    double initialX = 0.0;
-    double finalX = 1.0;
-    double initialY = 0.0;
-    double finalY = 1.0;
->>>>>>> fe5cdb30a74bcc41f76c3214c11a947ca1ad5b03
 
     AbstractIntegrator *pIntegration = 0;
 
