@@ -29,7 +29,7 @@ private:
     int M_partitions; // on y dimension
 
     //function to integrate, 1D and 2D (I don't know how to put a single function that works for both, there is a problem with pointers)
-    double (*function1D)(double x); // 1D
+    Function1D &f; // 1D
 
     double (*function2D)(double x, double y); // 2D
 

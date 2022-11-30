@@ -34,41 +34,8 @@
 // here you can set whatever function you would like to integrate
 // 1D -> double f_to_integrate(double x) { return x; }
 // 2D
-double f_to_integrate(double x,double y) { return x*y; }
+double f_to_integrate(double x,double y) { return x*y;}
 
-
-// here you can compose your function:
-
-
-double function(double x,std::vector<int> forder,std::vector<int> corder){
-    double function = x;
-    int i;
-    int j=0;
-    for (i =0; i<=forder.size();i++) {
-        int f = forder[i];
-        int c = corder[j];
-
-        if (f == 1) {
-            function = sin(function);
-        }
-        if (f == 2) {
-            function = cos(function);
-        }
-        if (f == 3) {
-            function = exp(function);
-        }
-        if (f == 4) {
-            function = function + c;
-            j++;
-        }
-        if (f == 5) {
-            function = function * c;
-            j++;
-        }
-
-    }
-    return function;
-}
 
 int main(){
 
@@ -112,18 +79,20 @@ int main(){
         std::cin>> m;
     }while(m<0||m>3);
 
+    // list of the command to create our function:
     std::vector<int> forder;
     std::vector<int> corder;
-
+    // initialization of parameter:
     int f =0;
     int c = 0;
 
+    //Compose the function and store the command:
     while (f >= 0) {
         std::cout << "Choose sin = 1, cos = 2, exp = 3, add a constant = 4, multiply by a constant = 5 or stop =-1 "
                   << std::endl;
-        std::cin >> f;
+        std::cin >> f; //enter the command
 
-        forder.push_back(f);
+        forder.push_back(f); // Store
         if (f == 4) {
             std::cout << "Value of the constant added: " << std::endl;
             std::cin >> c;
@@ -136,6 +105,10 @@ int main(){
             corder.push_back(c);
         }
     }
+
+    Function *pfunction;
+    pfunction -> getFunctionElement(initialX, forder,corder);
+
 
     AbstractIntegrator *pIntegration = 0;
 

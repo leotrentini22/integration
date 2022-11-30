@@ -7,9 +7,12 @@
 #define FUNCTION_HPP_
 
 #include <ostream>
-class Function{
+#include <vector>
+
+
+class AbstractFunction{
 private:
-    double (*p_function)(double x,double y);
+    double (*p_function)(double x,std::vector<int> forder,std::vector<int> corder);
 public:
     // Constructor:
     Function();
@@ -20,7 +23,9 @@ public:
     ~Function();
 
     //Method:
-    double getFunctionElement(double x, double y);
+
+    double getFunctionElement(double x,std::vector<int> forder,std::vector<int> corder);
+
 
 };
 
