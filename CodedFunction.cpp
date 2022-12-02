@@ -6,11 +6,17 @@
 #include <iostream>
 #include <vector>
 
+CodedFunction::CodedFunction() {}
+CodedFunction::~CodedFunction() {}
+
 double CodedFunction::getFunctionElement(double x) {
-    double function = x;
-    int i;
-    return function;
+    return x;
 }
 
 void CodedFunction::SetFunction() {
+    int i=0;
+}
+
+double CodedFunction::getFunctionElement(double x, double y) {
+    return x*y;
 }

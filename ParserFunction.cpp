@@ -16,7 +16,7 @@ ParserFunction::~ParserFunction() noexcept {
 void ParserFunction::SetFunction() {
     while(true)
     {
-        std::cin.ignore(1000, '\n');
+        //std::cin.ignore(1000, '\n');
         std::cout << "f(x) = ";
         std::getline(std::cin, function);
         if(std::cin.fail()) return;

@@ -44,10 +44,10 @@ int main(){
 
 
     //initialize variables
-    double initialX, finalX, initialY, finalY = 0.0;
-    int N,M;
-    int d,m;
-    double result;
+    double initialX, finalX, initialY=0.0, finalY = 0.0;
+    int N,M=0;
+    int d,m=1;
+    double result=0.0;
 
     //set dimension
     do{

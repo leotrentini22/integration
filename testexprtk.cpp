@@ -11,46 +11,45 @@ step: 1
 */
 
 #include "fpaser/fparser.hh"
-
+#include <iostream>
+#include <cmath>
+#include <fstream>
+#include <vector>
+#include "domain.hpp"
+#include "AbstractFunction.hpp"
+#include "ForderFunction.hpp"
+#include "ParserFunction.hpp"
+#include "CodedFunction.hpp"
+#include "AbstractIntegrator.hpp"
+#include "MidpointIntegrator.hpp"
+#include "TrapezoidalIntegrator.hpp"
+#include "SimpsonIntegrator.hpp"
 #include <iostream>
 #include <string>
 
+
 int main()
 {
-    std::string function;
-    double minx, maxx, step;
-    FunctionParser fparser;
+    double initialX=0.0, finalX=1.0;
+    int N=100;
+    int d=1;
+    double result=0.0;
+    std::cout << "Using parser." << std::endl;
+    AbstractFunction *pfunction;
+    pfunction = new ForderFunction;
+    pfunction -> SetFunction();
 
-    fparser.AddConstant("pi", 3.1415926535897932);
+    AbstractIntegrator *pIntegration = 0;
 
-    while(true)
-    {
-        std::cout << "f(x) = ";
-        std::getline(std::cin, function);
-        if(std::cin.fail()) return 0;
+    pIntegration = new MidpointIntegrator;
+    pIntegration->SetNumberOfPartitions(N);
+    pIntegration->SetExtremes(initialX,finalX);
 
-        int res = fparser.Parse(function, "x");
-        std::cout<< res<<std::endl;
-        if(res < 0) break;
+    pIntegration->SetFunction(pfunction);
 
-        std::cout << std::string(res+7, ' ') << "^\n"
-                  << fparser.ErrorMsg() << "\n\n";
-    }
+    result = pIntegration->Integrate();
 
-    std::cout << "min x: ";
-    std::cin >> minx;
-    std::cout << "max x: ";
-    std::cin >> maxx;
-    std::cout << "step: ";
-    std::cin >> step;
-    if(std::cin.fail()) return 0;
-
-    double vals[] = { 0 };
-    for(vals[0] = minx; vals[0] <= maxx; vals[0] += step)
-    {
-        std::cout << "f(" << vals[0] << ") = " << fparser.Eval(vals)
-                  << std::endl;
-    }
+    std::cout<<"result = "<<result;
 
     return 0;
 }

@@ -4,12 +4,9 @@
 
 #include <ostream>
 #include <vector>
-#include "CodedFunction.hpp"
+#include "AbstractFunction.hpp"
 
 class CodedFunction : public AbstractFunction{
-private:
-    double f_to_integrate(double x,double y) { return x*y;}
-    double f_to_integrate(double x) { return x;}
 
 public:
     // Constructor:
