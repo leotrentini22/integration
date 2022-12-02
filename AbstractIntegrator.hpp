@@ -30,7 +30,7 @@ private:
     int M_partitions; // on y dimension
 
     //function to integrate, 1D and 2D (I don't know how to put a single function that works for both, there is a problem with pointers)
-    AbstractFunction& f; // 1D
+    AbstractFunction *f; // 1D
 
     //double (*function1D)(double x);
     //double (*function2D)(double x, double y); // 2D
@@ -46,14 +46,14 @@ public:
     // Other public methods - 1 D
     void SetNumberOfPartitions(const int N);
     void SetExtremes(const double x_a, const double x_b);
-    void SetFunction(double (*f)(double x));
+    void SetFunction(AbstractFunction *function);
 
     double Function(double x) const;
 
     //Other public methods - 2 D
     void SetNumberOfPartitions(const int N, const int M);
     void SetExtremes(const double x_a, const double x_b, const double x_c, const double x_d);
-    void SetFunction(double (*f)(double x, double y));
+    //void SetFunction(double (*f)(double x, double y));
 
     double Function(double x, double y) const;
 

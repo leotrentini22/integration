@@ -5,7 +5,9 @@
 #include "AbstractIntegrator.hpp"
 
 AbstractIntegrator::AbstractIntegrator()
-    : x0(), xN(), N_partitions(), function1D(0), result(), function2D(0) {}
+    : x0(), xN(), N_partitions(), result(), f() {
+
+}
 
 AbstractIntegrator::~AbstractIntegrator() {}
 
@@ -13,11 +15,10 @@ void AbstractIntegrator::SetExtremes(const double x_a, const double x_b) {x0=x_a
 
 void AbstractIntegrator::SetNumberOfPartitions(const int N) {N_partitions=N; M_partitions=0;}
 
-void AbstractIntegrator::SetFunction(double (*f)(double)) {
-    //function1D=f;
-    function2D=0;
+void AbstractIntegrator::SetFunction(AbstractFunction *function) {
+    f=function;
 }
-double AbstractIntegrator::Function(double x) const{return f.getFunctionElement(x);}
+double AbstractIntegrator::Function(double x) const{return f->getFunctionElement(x);}
 
 
 // 2 D
@@ -26,6 +27,9 @@ void AbstractIntegrator::SetExtremes(const double x_a, const double x_b, const d
 
 void AbstractIntegrator::SetNumberOfPartitions(const int N, const int M) {N_partitions=N; M_partitions=M;}
 
-void AbstractIntegrator::SetFunction(double (*f)(double,double)) {function2D=f;function1D=0;}
+double AbstractIntegrator::Function(double x, double y) const{return f->getFunctionElement(x, y);}
 
-double AbstractIntegrator::Function(double x,double y) const{return function2D(x,y);}
+//we have to understand how does it work in 2D
+//void AbstractIntegrator::SetFunction(double (*f)(double,double)) {function2D=f;function1D=0;}
+
+//double AbstractIntegrator::Function(double x,double y) const{return function2D(x,y);}

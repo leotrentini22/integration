@@ -6,17 +6,17 @@
 // AbstractIntegrator = Abstract class of integrators, with 3 derived classes
 // MidpointIntegrator, TrapezoidalIntegrator, SimpsonIntegrator
 
+// AbstractFunction = Abstract class of function, with 3 derived classes (ways of getting function from user)
+// ForderFunction, ParserFunction, CodedFunction
+
 //next things to do:
-// - computing accuracy -> accuracy can be plotted if we know the exact integral
-// - extend for function chosen by the user, without coding
 // - extend for stranger domains
 // - let the possibility for the user to calculate another integral without restarting the program
 // - plot
 
 
 //HOW TO RUN
-//to change the function to integrate, change "f_to_integrate" (line 34) (keep attention to the dimension chosen)
-//then click "build", "run" and follow the instructions on the screen
+//click "build", "run" and follow the instructions of the screen
 
 
 #include <iostream>
@@ -25,6 +25,8 @@
 #include <vector>
 #include "domain.hpp"
 #include "AbstractFunction.hpp"
+#include "ForderFunction.hpp"
+#include "ParserFunction.hpp"
 #include "AbstractIntegrator.hpp"
 #include "MidpointIntegrator.hpp"
 #include "TrapezoidalIntegrator.hpp"
@@ -34,7 +36,7 @@
 // here you can set whatever function you would like to integrate
 // 1D -> double f_to_integrate(double x) { return x; }
 // 2D
-double f_to_integrate(double x,double y) { return x*y;}
+//double f_to_integrate(double x,double y) { return x*y;}
 
 
 
@@ -43,7 +45,7 @@ int main(){
 
     //initialize variables
     double initialX, finalX, initialY, finalY = 0.0;
-    double N,M;
+    int N,M;
     int d,m;
     double result;
 
@@ -81,7 +83,8 @@ int main(){
     }while(m<0||m>3);
 
     AbstractFunction *pfunction;
-    pfunction -> SetElements();
+    pfunction = new ParserFunction;
+    pfunction -> SetFunction();
 
 
     AbstractIntegrator *pIntegration = 0;
@@ -97,7 +100,7 @@ int main(){
         pIntegration->SetNumberOfPartitions(N);
         pIntegration->SetExtremes(initialX,finalX);
     }
-    pIntegration->SetFunction(f_to_integrate);
+    pIntegration->SetFunction(pfunction);
 
     result = pIntegration->Integrate();}
 
@@ -112,7 +115,7 @@ int main(){
             pIntegration->SetNumberOfPartitions(N);
             pIntegration->SetExtremes(initialX,finalX);
         }
-    pIntegration->SetFunction(f_to_integrate);
+    pIntegration->SetFunction(pfunction);
 
     result = pIntegration->Integrate();}
 
@@ -127,7 +130,7 @@ int main(){
             pIntegration->SetNumberOfPartitions(N);
             pIntegration->SetExtremes(initialX,finalX);
         }
-        pIntegration->SetFunction(pfunction->getFunctionElement);
+        pIntegration->SetFunction(pfunction);
 
         result = pIntegration->Integrate();
     }
