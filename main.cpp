@@ -2,17 +2,26 @@
 // Created by Odile on 25.11.2022.
 //
 
+
+// next things to do:
+// - check if "ForderFunction" works correctly
+// - implement "ParserFunction"
+// - implement "ForderFunction" and "ParserFunction" and in 2D
+// - make the main more readable
+// - Doxygen
+// - Tests
+
+// extras
+// - extend for stranger domains
+// - let the possibility for the user to calculate another integral without restarting the program
+// - plot
+
 //Structure:
 // AbstractIntegrator = Abstract class of integrators, with 3 derived classes
 // MidpointIntegrator, TrapezoidalIntegrator, SimpsonIntegrator
 
 // AbstractFunction = Abstract class of function, with 3 derived classes (ways of getting function from user)
 // ForderFunction, ParserFunction, CodedFunction
-
-//next things to do:
-// - extend for stranger domains
-// - let the possibility for the user to calculate another integral without restarting the program
-// - plot
 
 
 //HOW TO RUN
