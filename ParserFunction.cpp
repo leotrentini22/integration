@@ -6,16 +6,20 @@
 #include <iostream>
 #include <string>
 
-ParserFunction::ParserFunction(): fparser(), function() {}
-ParserFunction::~ParserFunction() noexcept {}
+ParserFunction::ParserFunction(): function() {
+    this->fparser= new FunctionParser;
+}
+ParserFunction::~ParserFunction() noexcept {
+    delete fparser;
+}
 
 void ParserFunction::SetFunction() {
-    fparser->AddConstant("pi", 3.1415926535897932);
     while(true)
     {
+        std::cin.ignore(1000, '\n');
         std::cout << "f(x) = ";
         std::getline(std::cin, function);
-        if(std::cin.fail()) break;
+        if(std::cin.fail()) return;
 
         int res = fparser->Parse(function, "x");
         std::cout<< res<<std::endl;
