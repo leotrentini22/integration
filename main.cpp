@@ -24,7 +24,7 @@
 #include <fstream>
 #include <vector>
 #include "domain.hpp"
-#include "function.hpp"
+#include "AbstractFunction.hpp"
 #include "AbstractIntegrator.hpp"
 #include "MidpointIntegrator.hpp"
 #include "TrapezoidalIntegrator.hpp"
@@ -35,6 +35,7 @@
 // 1D -> double f_to_integrate(double x) { return x; }
 // 2D
 double f_to_integrate(double x,double y) { return x*y;}
+
 
 
 int main(){
@@ -79,35 +80,8 @@ int main(){
         std::cin>> m;
     }while(m<0||m>3);
 
-    // list of the command to create our function:
-    std::vector<int> forder;
-    std::vector<int> corder;
-    // initialization of parameter:
-    int f =0;
-    int c = 0;
-
-    //Compose the function and store the command:
-    while (f >= 0) {
-        std::cout << "Choose sin = 1, cos = 2, exp = 3, add a constant = 4, multiply by a constant = 5 or stop =-1 "
-                  << std::endl;
-        std::cin >> f; //enter the command
-
-        forder.push_back(f); // Store
-        if (f == 4) {
-            std::cout << "Value of the constant added: " << std::endl;
-            std::cin >> c;
-            corder.push_back(c);
-
-        }
-        if (f == 5) {
-            std::cout << "Value of the constant: " << std::endl;
-            std::cin >> c;
-            corder.push_back(c);
-        }
-    }
-
-    Function *pfunction;
-    pfunction -> getFunctionElement(initialX, forder,corder);
+    AbstractFunction *pfunction;
+    pfunction -> SetElements();
 
 
     AbstractIntegrator *pIntegration = 0;
@@ -153,7 +127,7 @@ int main(){
             pIntegration->SetNumberOfPartitions(N);
             pIntegration->SetExtremes(initialX,finalX);
         }
-        pIntegration->SetFunction(f_to_integrate);
+        pIntegration->SetFunction(pfunction->getFunctionElement);
 
         result = pIntegration->Integrate();
     }

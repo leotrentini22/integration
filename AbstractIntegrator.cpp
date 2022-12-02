@@ -14,11 +14,10 @@ void AbstractIntegrator::SetExtremes(const double x_a, const double x_b) {x0=x_a
 void AbstractIntegrator::SetNumberOfPartitions(const int N) {N_partitions=N; M_partitions=0;}
 
 void AbstractIntegrator::SetFunction(double (*f)(double)) {
-    function1D=f;
+    //function1D=f;
     function2D=0;
 }
-
-double AbstractIntegrator::Function(double x) const{return function1D(x);}
+double AbstractIntegrator::Function(double x) const{return f.getFunctionElement(x);}
 
 
 // 2 D

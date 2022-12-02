@@ -13,6 +13,7 @@
 #define ABSTRACTINTEGRATOR_HPP_
 
 #include <ostream>
+#include "AbstractFunction.hpp"
 
 class AbstractIntegrator {
 private:
@@ -29,9 +30,10 @@ private:
     int M_partitions; // on y dimension
 
     //function to integrate, 1D and 2D (I don't know how to put a single function that works for both, there is a problem with pointers)
-    Function1D &f; // 1D
+    AbstractFunction& f; // 1D
 
-    double (*function2D)(double x, double y); // 2D
+    //double (*function1D)(double x);
+    //double (*function2D)(double x, double y); // 2D
 
 protected:
     double result;

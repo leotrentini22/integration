@@ -30,6 +30,7 @@ int main()
         if(std::cin.fail()) return 0;
 
         int res = fparser.Parse(function, "x");
+        std::cout<< res<<std::endl;
         if(res < 0) break;
 
         std::cout << std::string(res+7, ' ') << "^\n"
