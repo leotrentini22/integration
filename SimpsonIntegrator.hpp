@@ -8,6 +8,11 @@
 #include <ostream>
 #include "AbstractIntegrator.hpp"
 
+/**
+ * Daughter class of AbstractIntegrator
+ * it implements the simpson integrator method (see Chapter 3 of Scientific Computing (Quarteroni, Saleri) for a mathematical explanation
+ */
+
 class SimpsonIntegrator : public AbstractIntegrator {
 public:
     SimpsonIntegrator();

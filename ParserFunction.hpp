@@ -7,8 +7,13 @@
 
 #include "AbstractFunction.hpp"
 #include <iostream>
-#include "fpaser/fparser.hh"
+#include "fparser/fparser.hh"
 #include <string>
+
+/**
+ * Daughter class of AbstractFunction
+ * it implements the methods to get a function from a string written from user
+ */
 
 class ParserFunction : public AbstractFunction {
 private:

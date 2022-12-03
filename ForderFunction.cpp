@@ -12,6 +12,10 @@ ForderFunction::~ForderFunction() {}
 
 //Methods
 double ForderFunction::getFunctionElement(double x) {
+    /**
+     * Evaluate the function (previously inserted) for a certain point x (1D)
+     */
+
     double function = x;
     int i;
     int j=0;
@@ -48,10 +52,19 @@ double ForderFunction::getFunctionElement(double x) {
 }
 
 double ForderFunction::getFunctionElement(double x, double y) {
+    /**
+     * Evaluate the function (previously inserted) for a certain point with coordinates (x,y) (2D)
+     * NOT IMPLEMENTED
+     */
+
     return x*y;
 }
 
 void ForderFunction::SetFunction(int d) {
+    /**
+     * Compose a function iteratively from user choices (implemented only 1D)
+     */
+
     //list of the command to create our function:
     // initialization of parameter:
     int f = 0;

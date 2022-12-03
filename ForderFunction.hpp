@@ -11,6 +11,11 @@
 #include <vector>
 #include "AbstractFunction.hpp"
 
+/**
+ * Daughter class of AbstractFunction
+ * it implements the methods to get a function from built step by step iteratively by the user
+ */
+
 class ForderFunction : public AbstractFunction{
 protected:
     std::vector<int> forder;

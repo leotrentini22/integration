@@ -13,12 +13,14 @@
 // - extend for stranger domains
 // - plot
 
-//Structure:
-// AbstractIntegrator = Abstract class of integrators, with 3 derived classes
-// MidpointIntegrator, TrapezoidalIntegrator, SimpsonIntegrator
-
-// AbstractFunction = Abstract class of function, with 3 derived classes (ways of getting function from user)
-// ForderFunction, ParserFunction, CodedFunction
+/** Implementation of three different methods for the numerical computation of integrals in one or two dimensions
+ * Structure:
+ * AbstractIntegrator = Abstract class of integrators, with 3 derived classes
+ * MidpointIntegrator, TrapezoidalIntegrator, SimpsonIntegrator
+ *
+ * AbstractFunction = Abstract class of function, with 3 derived classes (ways of getting function from user)
+ * ForderFunction, ParserFunction, CodedFunction
+ */
 
 
 //HOW TO RUN

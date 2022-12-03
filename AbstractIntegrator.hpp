@@ -15,6 +15,12 @@
 #include <ostream>
 #include "AbstractFunction.hpp"
 
+/**
+ * Abstract class of integrators, with 3 derived classes
+ * MidpointIntegrator, TrapezoidalIntegrator, SimpsonIntegrator
+ * Stores the extremes of the domain, the number of partitions and useful methods for the integration
+ */
+
 class AbstractIntegrator {
 private:
     // extremes in x dimension

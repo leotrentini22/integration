@@ -9,6 +9,10 @@
 #include <ostream>
 #include <vector>
 
+/**
+ * Abstract class of function, with 3 derived classes (ways of getting function from user)
+ * Only pure virtual methods
+ */
 
 class AbstractFunction{
 public:

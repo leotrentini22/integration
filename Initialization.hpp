@@ -7,6 +7,10 @@
 
 #include <iostream>
 
+/**
+ * Class made in order to make the main more readable
+ */
+
 class Initialization{
 
 private:

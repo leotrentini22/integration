@@ -10,11 +10,19 @@ CodedFunction::CodedFunction() {}
 CodedFunction::~CodedFunction() {}
 
 double CodedFunction::getFunctionElement(double x) {
+    /**
+     * Evaluate a function for a certain point x (1D)
+     */
+
+    //CODE HERE
     return x;
 }
 
-void CodedFunction::SetFunction(int d) {}
-
 double CodedFunction::getFunctionElement(double x, double y) {
+    /**
+     * Evaluate a function for a certain point with coordinates (x,y) (2D)
+     */
+
+    //CODE HERE
     return x*y;
 }

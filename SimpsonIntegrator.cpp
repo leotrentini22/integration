@@ -17,6 +17,9 @@ SimpsonIntegrator::~SimpsonIntegrator() {}
 // integration
 
 double SimpsonIntegrator::Integrate() {
+    /**
+     * Implements Simpson integration in 1D and 2D
+     */
     double x_first=GetFirstExtreme();
     double h=GetStepSize();
     double xold=x_first;
@@ -56,8 +59,10 @@ double SimpsonIntegrator::Integrate() {
 }
 
 
-// Computes the coefficients for Simpson integration in 2D
 double SimpsonIntegrator::getCoeffS(int i, int j, int Nx, int My){
+    /**
+     * Computes the coefficients for Simpson integration in 2D
+     */
     if((i==0&&j==0)||(i==0&&j==(My-1))||(i==(Nx-1)&&j==0)||(i==(Nx-1)&&j==(My-1))){
         return 1;
     }

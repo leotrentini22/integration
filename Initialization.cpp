@@ -24,18 +24,11 @@ Initialization::Initialization()
 Initialization::~Initialization() {
     delete pfunction;
 }
-/**
-void Initialization::SetDimension() {
-    /**Set dimension of the function to integrate
-    do{
-        std::cout<<"Set the dimension (1 or 2): ";
-        std::cin>> d;}while(d<1||d>2); //not sure if it is working mayby we should right what is above:
-}
-**/
+
 
 
 void Initialization::SetDimension() {
-    /**Set dimension of the function to integrate**/
+    /** Set dimension of the function to integrate */
     int dim = 0;
     do {
         std::cout << "Set the dimension (1 or 2): ";
@@ -44,44 +37,8 @@ void Initialization::SetDimension() {
     d = dim;
 }
 
-/**
-void Initialization::SetDomainExtremes() {
-    /** Set domain extremes
-    double Xi, Xf, Yi, Yf;
-    int Npart,Mpart;
-    std::cout<<"\nSet the parameters for the x axes:\ndomain extremes [a,b] \nN = Number of partitions for x";
-    do{
-        std::cout<<"\nSet a: ";
-        std::cin>> Xi;
-        std::cout<<"\nSet b: ";
-        std::cin>> Xf;}while(Xi>Xf);
-    std::cout<<"\nSet N (it has to be integer and positive): ";
-    std::cin>> Npart;
-    if (Npart<0){Npart=100;}
-    initialX = Xi;
-    finalX = Xf;
-    N = Npart;
-
-    // if 2D, we inizialize y
-    if(d==2){
-        std::cout<<"\nSet the parameters for the y axes:\ndomain extremes [c,d] \nM = Number of partitions for y";
-        do{
-            std::cout<<"\nSet c: ";
-            std::cin>> Yi;
-            std::cout<<"\nSet d: ";
-            std::cin>> Yf;}while(Yi>Yf);
-        std::cout<<"\nSet M (it has to be integer and positive): ";
-        std::cin>> Mpart;
-        if (Mpart<0){Mpart=100;}}
-
-    initialY = Yi;
-    finalY = Yf;
-    M = Mpart;
-}
-**/
-
 void Initialization::SetParameters(){
-    /** Set domain extremes**/
+    /** Set domain extremes */
 
     std::cout<<"\nSet the parameters for the x axes:\ndomain extremes [a,b] \nN = Number of partitions for x";
     do{
@@ -109,36 +66,27 @@ void Initialization::SetParameters(){
 
 
 void Initialization::ChooseMethod() {
-    /**Choose the method that will be used to calculate the integral**/
+    /** Choose the method that will be used to calculate the integral */
     do{
         std::cout<<"\nSet method to integrate:\n - insert 1 for Midpoint \n - insert 2 for Trapezoidal \n - insert 3 for Cavalieri-Simpson\nif input is not 1, 2 or 3, will be used 1 as standard\nMETHOD: ";
         std::cin>> m;
     }while(m<0||m>3);
 }
-/**
-void Initialization::ChooseMethod() {
-    /**Choose the method that will be used to calculate the integral
-    int mchoose;
 
-    do{
-        std::cout<<"\nSet method to integrate:\n - insert 1 for Midpoint \n - insert 2 for Trapezoidal \n - insert 3 for Cavalieri-Simpson\nif input is not 1, 2 or 3, will be used 1 as standard\nMETHOD: ";
-        std::cin>> mchoose;
-    }while(mchoose<0||mchoose>3);
-    m = mchoose;
-}**/
 
 void Initialization::SetFunctionToIntegrate() {
-    //here you choose how to set the function
-    //ParserFunction = function from string
-    //ForderFunction =function assembled step by step from user
-    //CodedFunction = function directly coded (need to be recompiled everytime)
+    /**here you choose how to set the function
+     * ParserFunction = function from string
+     * ForderFunction =function assembled step by step from user
+     * CodedFunction = function directly coded (need to be recompiled everytime)
+     */
 
     pfunction = new ParserFunction;
     pfunction -> SetFunction(d);
 }
 
 double Initialization::CalculateIntegral() {
-    /**Depending on the method choosen, calculate the integral of the function**/
+    /** Depending on the method choosen, calculate the integral of the function */
 
     AbstractIntegrator *pIntegration = 0;
 
@@ -191,7 +139,7 @@ double Initialization::CalculateIntegral() {
 }
 
 void Initialization::PrintResult() const {
-    /** print the results to the screen**/
+    /** print the results to the screen */
     std::cout<<"result = "<<result;
 }
 

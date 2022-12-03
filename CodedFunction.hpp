@@ -6,6 +6,11 @@
 #include <vector>
 #include "AbstractFunction.hpp"
 
+/**
+ * Daughter class of AbstractFunction
+ * it implements the methods to use a function directly coded by the user (need to recompile everytime)
+ */
+
 class CodedFunction : public AbstractFunction{
 
 public:
@@ -17,7 +22,7 @@ public:
 
     //Methods:
 
-    virtual void SetFunction(int d) override;
+    virtual void SetFunction(int d) override {};
 
     virtual double getFunctionElement(double x) override;
     virtual double getFunctionElement(double x, double y) override;
