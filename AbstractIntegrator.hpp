@@ -93,9 +93,6 @@ public:
 
     int GetNumberofPartitionsY() const {return M_partitions;}
 
-    // Write down result to file
-
-    void WriteResult(std::ostream &stream) const {stream << result;};
 
 };
 

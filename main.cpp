@@ -40,6 +40,7 @@
 #include "MidpointIntegrator.hpp"
 #include "TrapezoidalIntegrator.hpp"
 #include "SimpsonIntegrator.hpp"
+#include "Initialization.hpp"
 
 
 // here you can set whatever function you would like to integrate
@@ -51,7 +52,7 @@
 
 int main(){
 
-
+/**
     //initialize variables
     double initialX, finalX, initialY=0.0, finalY = 0.0;
     int N,M=0;
@@ -90,6 +91,7 @@ int main(){
         std::cout<<"\nSet method to integrate:\n - insert 1 for Midpoint \n - insert 2 for Trapezoidal \n - insert 3 for Cavalieri-Simpson\nif input is not 1, 2 or 3, will be used 1 as standard\nMETHOD: ";
         std::cin>> m;
     }while(m<0||m>3);
+
 
     AbstractFunction *pfunction;
     pfunction = new ParserFunction;
@@ -148,6 +150,11 @@ int main(){
     std::cout<<"result = "<<result;
 
     //you can also write down the result into a file, with the method "WriteResult" of Abstract Integrator
+**/
+
+
+    Initialization parameter;
+    parameter.SetDimension();
 
     return 0;
 }
