@@ -7,7 +7,6 @@
 #include <cmath>
 #include <fstream>
 #include <vector>
-#include "domain.hpp"
 #include "AbstractFunction.hpp"
 #include "ForderFunction.hpp"
 #include "ParserFunction.hpp"

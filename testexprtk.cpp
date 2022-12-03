@@ -15,7 +15,6 @@ step: 1
 #include <cmath>
 #include <fstream>
 #include <vector>
-#include "domain.hpp"
 #include "AbstractFunction.hpp"
 #include "ForderFunction.hpp"
 #include "ParserFunction.hpp"
@@ -37,7 +36,7 @@ int main()
     std::cout << "Using parser." << std::endl;
     AbstractFunction *pfunction;
     pfunction = new ForderFunction;
-    pfunction -> SetFunction();
+    pfunction -> SetFunction(d);
 
     AbstractIntegrator *pIntegration = 0;
 
