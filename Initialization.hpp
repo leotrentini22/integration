@@ -21,6 +21,8 @@ private:
     //m: method to intgrate (1 Midpoint, 2: Trapezoidal, 3: Cavalieri-Simpson)
     int d,m;
     double result;
+    AbstractFunction *pfunction;
+
 public:
     //Constructor:
     Initialization();
@@ -30,14 +32,15 @@ public:
 
     //Method:
     void SetDimension();
-    void SetDomainExtremes();
+    void SetParameters();
     void ChooseMethod();
+    void SetFunctionToIntegrate();
     double CalculateIntegral();
-    void PrintResult();
+    void PrintResult() const;
 
     // Write down result to file
 
-    void WriteResult(std::ostream &stream) const {stream << result;};
+    void WriteResultToFile(std::ostream &stream) const {stream << result;};
 
 };
 

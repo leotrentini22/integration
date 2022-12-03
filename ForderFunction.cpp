@@ -51,7 +51,7 @@ double ForderFunction::getFunctionElement(double x, double y) {
     return x*y;
 }
 
-void ForderFunction::SetFunction() {
+void ForderFunction::SetFunction(int d) {
     //list of the command to create our function:
     // initialization of parameter:
     int f = 0;

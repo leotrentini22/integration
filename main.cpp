@@ -51,6 +51,18 @@
 
 
 int main(){
+    Initialization init;
+    init.SetDimension();
+    init.SetParameters();
+    init.ChooseMethod();
+    init.SetFunctionToIntegrate();
+    init.CalculateIntegral();
+    init.PrintResult();
+
+    return 0;
+}
+
+
 
 /**
     //initialize variables
@@ -151,13 +163,6 @@ int main(){
 
     //you can also write down the result into a file, with the method "WriteResult" of Abstract Integrator
 **/
-
-
-    Initialization parameter;
-    parameter.SetDimension();
-
-    return 0;
-}
 
 
 

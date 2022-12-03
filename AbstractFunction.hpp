@@ -20,7 +20,7 @@ public:
 
     //Methods:
 
-    virtual void SetFunction()=0;
+    virtual void SetFunction(int d)=0;
 
     virtual double getFunctionElement(double x)=0;
     virtual double getFunctionElement(double x, double y)=0;

@@ -17,11 +17,14 @@
 #include "SimpsonIntegrator.hpp"
 #include "Initialization.hpp"
 
-Initialization::Initialization() {
-
+Initialization::Initialization()
+   : initialX(), finalX(), initialY(), finalY(), N(), M(), d(), m(), result() {
+    this->pfunction = nullptr;
 }
 
-Initialization::~Initialization() {}
+Initialization::~Initialization() {
+    delete pfunction;
+}
 /**
 void Initialization::SetDimension() {
     /**Set dimension of the function to integrate
@@ -78,7 +81,7 @@ void Initialization::SetDomainExtremes() {
 }
 **/
 
-void Initialization::SetDomainExtremes(){
+void Initialization::SetParameters(){
     /** Set domain extremes**/
 
     std::cout<<"\nSet the parameters for the x axes:\ndomain extremes [a,b] \nN = Number of partitions for x";
@@ -125,11 +128,18 @@ void Initialization::ChooseMethod() {
     m = mchoose;
 }**/
 
+void Initialization::SetFunctionToIntegrate() {
+    //here you choose how to set the function
+    //ParserFunction = function from string
+    //ForderFunction =function assembled step by step from user
+    //CodedFunction = function directly coded (need to be recompiled everytime)
+
+    pfunction = new ParserFunction;
+    pfunction -> SetFunction(d);
+}
+
 double Initialization::CalculateIntegral() {
     /**Depending on the method choosen, calculate the integral of the function**/
-    AbstractFunction *pfunction;
-    pfunction = new ParserFunction;
-    pfunction -> SetFunction();
 
     AbstractIntegrator *pIntegration = 0;
 
@@ -178,10 +188,10 @@ double Initialization::CalculateIntegral() {
 
         result = pIntegration->Integrate();
     }
-
+    return result;
 }
 
-void Initialization::PrintResult() {
+void Initialization::PrintResult() const {
     /** print the results to the screen**/
     std::cout<<"result = "<<result;
 }
@@ -194,10 +204,6 @@ void Initialization::PrintResult() {
 
 
 
-    //you can also write down the result into a file, with the method "WriteResult" of Abstract Integrator
-
-    return 0;
-}
 
 
 

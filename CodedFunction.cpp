@@ -13,9 +13,7 @@ double CodedFunction::getFunctionElement(double x) {
     return x;
 }
 
-void CodedFunction::SetFunction() {
-    int i=0;
-}
+void CodedFunction::SetFunction(int d) {}
 
 double CodedFunction::getFunctionElement(double x, double y) {
     return x*y;

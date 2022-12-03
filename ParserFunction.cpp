@@ -13,31 +13,54 @@ ParserFunction::~ParserFunction() noexcept {
     delete fparser;
 }
 
-void ParserFunction::SetFunction() {
+void ParserFunction::SetFunction(int d) {
     while(true)
-    {
-        //std::cin.ignore(1000, '\n');
-        std::cout << "f(x) = ";
-        std::getline(std::cin, function);
-        if(std::cin.fail()) return;
+    {   if (d==1) {
+            std::cin.ignore(1000, '\n');
+            std::cout << "f(x) = ";
+            std::getline(std::cin, function);
+            if (std::cin.fail()) return;
 
-        int res = fparser->Parse(function, "x");
-        std::cout<< res<<std::endl;
-        if(res < 0) break;
+            int res = fparser->Parse(function, "x");
+            std::cout << res << std::endl;
+            if (res < 0) break;
 
-        std::cout << std::string(res+7, ' ') << "^\n"
-                  << fparser->ErrorMsg() << "\n\n";
+            //std::cout << std::string(res + 7, ' ') << "^\n"
+            //          << fparser->ErrorMsg() << "\n\n";
+        }
+        else if (d==2){
+            std::cin.ignore(1000, '\n');
+            std::cout << "f(x,y) = ";
+            std::getline(std::cin, function);
+            if (std::cin.fail()) return;
+
+            int res = fparser->Parse(function, "x,y");
+            std::cout << res << std::endl;
+            if (res < 0) break;
+
+            //std::cout << std::string(res + 7, ' ') << "^\n"
+            //          << fparser->ErrorMsg() << "\n\n";
+        }
+        else{
+            std::cout<<"Error: dimension not 1 or 2";
+        }
     }
 }
 double ParserFunction::getFunctionElement(double x) {
-    int res = fparser->Parse(function, "x");
-    std::cout<< res<<std::endl;
-    if(res < 0) return 0.0;
-    std::cout << std::string(res+7, ' ') << "^\n"
-              << fparser->ErrorMsg() << "\n\n";
-    double vals[] = { 0 };
-    vals[0] = x;
+    fparser->Parse(function, "x");
+    //std::cout<< res<<std::endl;
+    //if(res < 0) return 0.0;
+    //std::cout << std::string(res+7, ' ') << "^\n"
+    //          << fparser->ErrorMsg() << "\n\n";
+    double vals[] = { x };
     return fparser->Eval(vals);}
 
-double ParserFunction::getFunctionElement(double x, double y) {return x*y;}
+double ParserFunction::getFunctionElement(double x, double y) {
+    fparser->Parse(function, "x,y");
+    //std::cout<< res<<std::endl;
+    //if(res < 0) return 0.0;
+    //std::cout << std::string(res+7, ' ') << "^\n"
+    //          << fparser->ErrorMsg() << "\n\n";
+    double vals[] = { x, y };
+    return fparser->Eval(vals);}
 
