@@ -86,7 +86,7 @@ void Initialization::SetFunctionToIntegrate() {
 }
 
 double Initialization::CalculateIntegral() {
-    /** Depending on the method choosen, calculate the integral of the function */
+    /** Depending on the method chosen, calculate the integral of the function */
 
     AbstractIntegrator *pIntegration = 0;
 

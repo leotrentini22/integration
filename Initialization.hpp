@@ -25,6 +25,8 @@ private:
     //m: method to intgrate (1 Midpoint, 2: Trapezoidal, 3: Cavalieri-Simpson)
     int d,m;
     double result;
+
+    //pointer to the function to integrate:
     AbstractFunction *pfunction;
 
 public:

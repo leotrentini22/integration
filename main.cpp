@@ -52,7 +52,11 @@ int main(){
     init.SetDimension();
     init.SetParameters();
     init.ChooseMethod();
-    init.SetFunctionToIntegrate();
+
+    //init.SetFunctionToIntegrate();
+    AbstractFunction* pfunction;
+    pfunction = new ParserFunction;
+    init.SetFunctionToIntegrate(pfunction);
     init.CalculateIntegral();
     init.PrintResult();
 
