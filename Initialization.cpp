@@ -15,6 +15,8 @@
 #include "TrapezoidalIntegrator.hpp"
 #include "SimpsonIntegrator.hpp"
 #include "Initialization.hpp"
+//#include <gtest/gtest.h>
+
 
 Initialization::Initialization()
    : initialX(), finalX(), initialY(), finalY(), N(), M(), d(), m(), result() {
@@ -45,7 +47,10 @@ void Initialization::SetParameters(){
         std::cout<<"\nSet a: ";
         std::cin>> initialX;
         std::cout<<"\nSet b: ";
-        std::cin>> finalX;}while(initialX>finalX);
+        std::cin>> finalX;
+        // try to test the googletest: does not work
+        //EXPECT_TRUE(initialX<finalX)<<"Error: a>b. Expected a<b.";
+    }while(initialX>finalX);
     std::cout<<"\nSet N (it has to be integer and positive): ";
     std::cin>> N;
     if (N<0){N=100;}

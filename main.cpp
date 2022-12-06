@@ -53,10 +53,10 @@ int main(){
     init.SetParameters();
     init.ChooseMethod();
 
-    //init.SetFunctionToIntegrate();
-    AbstractFunction* pfunction;
-    pfunction = new ParserFunction;
-    init.SetFunctionToIntegrate(pfunction);
+    init.SetFunctionToIntegrate();
+    //AbstractFunction* pfunction;
+    //pfunction = new ParserFunction;
+    //init.SetFunctionToIntegrate(pfunction);
     init.CalculateIntegral();
     init.PrintResult();
 
