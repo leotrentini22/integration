@@ -13,7 +13,7 @@
 #define ABSTRACTINTEGRATOR_HPP_
 
 #include <ostream>
-#include "AbstractFunction.hpp"
+#include "../Function/AbstractFunction.hpp"
 
 /**
  * Abstract class of integrators, with 3 derived classes

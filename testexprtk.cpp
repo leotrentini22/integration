@@ -15,14 +15,14 @@ step: 1
 #include <cmath>
 #include <fstream>
 #include <vector>
-#include "AbstractFunction.hpp"
-#include "ForderFunction.hpp"
-#include "ParserFunction.hpp"
-#include "CodedFunction.hpp"
-#include "AbstractIntegrator.hpp"
-#include "MidpointIntegrator.hpp"
-#include "TrapezoidalIntegrator.hpp"
-#include "SimpsonIntegrator.hpp"
+#include "Function/AbstractFunction.hpp"
+#include "Function/ForderFunction.hpp"
+#include "Function/ParserFunction.hpp"
+#include "Function/CodedFunction.hpp"
+#include "Integrator/AbstractIntegrator.hpp"
+#include "Integrator/MidpointIntegrator.hpp"
+#include "Integrator/TrapezoidalIntegrator.hpp"
+#include "Integrator/SimpsonIntegrator.hpp"
 #include <iostream>
 #include <string>
 

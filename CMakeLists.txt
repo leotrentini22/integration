@@ -17,16 +17,21 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 # Create an executable to build:
 add_executable(hello_test hello_test.cc)
-add_executable(main main.cpp AbstractFunction.cpp MidpointIntegrator.cpp AbstractIntegrator.cpp TrapezoidalIntegrator.cpp SimpsonIntegrator.cpp AbstractFunction.cpp ForderFunction.cpp ParserFunction.cpp fparser/fparser.cc Initialization.cpp)
-add_executable(testexprtk testexprtk.cpp AbstractFunction.cpp MidpointIntegrator.cpp AbstractIntegrator.cpp TrapezoidalIntegrator.cpp SimpsonIntegrator.cpp AbstractFunction.cpp ForderFunction.cpp ParserFunction.cpp CodedFunction.cpp fparser/fparser.cc)
+add_executable(main main.cpp Function/AbstractFunction.cpp Integrator/MidpointIntegrator.cpp Integrator/AbstractIntegrator.cpp Integrator/TrapezoidalIntegrator.cpp Integrator/SimpsonIntegrator.cpp Function/AbstractFunction.cpp Function/ForderFunction.cpp Function/ParserFunction.cpp fparser/fparser.cc Initialization.cpp)
+add_executable(testexprtk testexprtk.cpp Function/AbstractFunction.cpp Integrator/MidpointIntegrator.cpp Integrator/AbstractIntegrator.cpp Integrator/TrapezoidalIntegrator.cpp Integrator/SimpsonIntegrator.cpp Function/AbstractFunction.cpp Function/ForderFunction.cpp Function/ParserFunction.cpp Function/CodedFunction.cpp fparser/fparser.cc)
+add_executable(main_test Test/main_test.cc Function/AbstractFunction.cpp Integrator/MidpointIntegrator.cpp Integrator/AbstractIntegrator.cpp Integrator/TrapezoidalIntegrator.cpp Integrator/SimpsonIntegrator.cpp Function/AbstractFunction.cpp Function/ForderFunction.cpp Function/ParserFunction.cpp fparser/fparser.cc Initialization.cpp)
+
 #Create a link to library:
 target_link_libraries(hello_test GTest::gtest_main)
+target_link_libraries(main_test GTest::gtest_main)
 #target_link_libraries(main GTest::gtest_main)
 #target_link_libraries(testexprtk GTest::gtest_main)
+
 # include Google test
 include(GoogleTest)
 
 gtest_discover_tests(hello_test)
+gtest_discover_tests(main_test)
 #gtest_discover_tests(main)
 #gtest_discover_tests(testexprtk)
 

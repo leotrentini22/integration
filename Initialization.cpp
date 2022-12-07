@@ -7,13 +7,13 @@
 #include <cmath>
 #include <fstream>
 #include <vector>
-#include "AbstractFunction.hpp"
-#include "ForderFunction.hpp"
-#include "ParserFunction.hpp"
-#include "AbstractIntegrator.hpp"
-#include "MidpointIntegrator.hpp"
-#include "TrapezoidalIntegrator.hpp"
-#include "SimpsonIntegrator.hpp"
+#include "Function/AbstractFunction.hpp"
+#include "Function/ForderFunction.hpp"
+#include "Function/ParserFunction.hpp"
+#include "Integrator/AbstractIntegrator.hpp"
+#include "Integrator/MidpointIntegrator.hpp"
+#include "Integrator/TrapezoidalIntegrator.hpp"
+#include "Integrator/SimpsonIntegrator.hpp"
 #include "Initialization.hpp"
 //#include <gtest/gtest.h>
 
@@ -34,6 +34,7 @@ void Initialization::SetDimension() {
     int dim = 0;
     do {
         std::cout << "Set the dimension (1 or 2): ";
+        std::cout<<std::endl;
         std::cin >> dim;
     } while (dim < 1 || dim > 2);
     d = dim;

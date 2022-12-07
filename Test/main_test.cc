@@ -1,4 +1,7 @@
 //
+// Created by Odile on 07.12.2022.
+//
+//
 // Created by Odile on 25.11.2022.
 //
 
@@ -37,14 +40,14 @@
 #include <cmath>
 #include <fstream>
 #include <vector>
-#include "Function/AbstractFunction.hpp"
-#include "Function/ForderFunction.hpp"
-#include "Function/ParserFunction.hpp"
-#include "Integrator/AbstractIntegrator.hpp"
-#include "Integrator/MidpointIntegrator.hpp"
-#include "Integrator/TrapezoidalIntegrator.hpp"
-#include "Integrator/SimpsonIntegrator.hpp"
-#include "Initialization.hpp"
+#include "../Function/AbstractFunction.hpp"
+#include "../Function/ForderFunction.hpp"
+#include "../Function/ParserFunction.hpp"
+#include "../Integrator/AbstractIntegrator.hpp"
+#include "../Integrator/MidpointIntegrator.hpp"
+#include "../Integrator/TrapezoidalIntegrator.hpp"
+#include "../Integrator/SimpsonIntegrator.hpp"
+#include "../Initialization.hpp"
 
 
 int main(){
@@ -52,11 +55,7 @@ int main(){
     init.SetDimension();
     init.SetParameters();
     init.ChooseMethod();
-
     init.SetFunctionToIntegrate();
-    //AbstractFunction* pfunction;
-    //pfunction = new ParserFunction;
-    //init.SetFunctionToIntegrate(pfunction);
     init.CalculateIntegral();
     init.PrintResult();
 

@@ -7,7 +7,7 @@
 
 #include "AbstractFunction.hpp"
 #include <iostream>
-#include "fparser/fparser.hh"
+#include "../fparser/fparser.hh"
 #include <string>
 
 /**
