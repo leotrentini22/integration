@@ -34,8 +34,10 @@ void Initialization::SetDimension() {
     int dim = 0;
     do {
         std::cout << "Set the dimension (1 or 2): ";
-        std::cout<<std::endl;
         std::cin >> dim;
+        if (dim < 1 || dim > 2){
+            std::cout << "\nDimension not 1 or 2! Retry\n";
+        }
     } while (dim < 1 || dim > 2);
     d = dim;
 }
@@ -49,12 +51,18 @@ void Initialization::SetParameters(){
         std::cin>> initialX;
         std::cout<<"\nSet b: ";
         std::cin>> finalX;
-        // try to test the googletest: does not work
-        //EXPECT_TRUE(initialX<finalX)<<"Error: a>b. Expected a<b.";
+        if (initialX>finalX){
+            std::cout << "\nDomain not valid, a>b! Retry\n";
+        }
     }while(initialX>finalX);
+
+    do{
     std::cout<<"\nSet N (it has to be integer and positive): ";
     std::cin>> N;
-    if (N<0){N=100;}
+    if (N<0){
+        std::cout << "\nN not valid, negative! Retry\n";
+    }
+    }while(N<0);
 
     // if 2D, we inizialize y
     if(d==2){
@@ -63,10 +71,18 @@ void Initialization::SetParameters(){
             std::cout<<"\nSet c: ";
             std::cin>> initialY;
             std::cout<<"\nSet d: ";
-            std::cin>> finalY;}while(initialY>finalY);
-        std::cout<<"\nSet M (it has to be integer and positive): ";
-        std::cin>> M;
-        if (M<0){M=100;}
+            std::cin>> finalY;
+            if (initialY>finalY){
+                std::cout << "\nDomain not valid, c>d! Retry\n";
+            }
+        }while(initialY>finalY);
+        do{
+            std::cout<<"\nSet M (it has to be integer and positive): ";
+            std::cin>> M;
+            if (M<0){
+                std::cout << "\nM not valid, negative! Retry\n";
+            }
+        }while(M<0);
     }
 }
 
@@ -74,8 +90,11 @@ void Initialization::SetParameters(){
 void Initialization::ChooseMethod() {
     /** Choose the method that will be used to calculate the integral */
     do{
-        std::cout<<"\nSet method to integrate:\n - insert 1 for Midpoint \n - insert 2 for Trapezoidal \n - insert 3 for Cavalieri-Simpson\nif input is not 1, 2 or 3, will be used 1 as standard\nMETHOD: ";
+        std::cout<<"\nSet method to integrate:\n - insert 1 for Midpoint \n - insert 2 for Trapezoidal \n - insert 3 for Cavalieri-Simpson\nMETHOD: ";
         std::cin>> m;
+        if (m<0||m>3){
+            std::cout<<"\nMethod not valid, it has to be 1, 2 or 3! Retry\n";
+        }
     }while(m<0||m>3);
 }
 
@@ -83,7 +102,7 @@ void Initialization::ChooseMethod() {
 void Initialization::SetFunctionToIntegrate() {
     /**here you choose how to set the function
      * ParserFunction = function from string
-     * ForderFunction =function assembled step by step from user
+     * ForderFunction = function assembled step by step from user (not implemented for 2D)
      * CodedFunction = function directly coded (need to be recompiled everytime)
      */
 

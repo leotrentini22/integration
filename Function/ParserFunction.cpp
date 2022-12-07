@@ -22,10 +22,13 @@ void ParserFunction::SetFunction(int d) {
             std::cin.ignore(1000, '\n');
             std::cout << "f(x) = ";
             std::getline(std::cin, function);
-            if (std::cin.fail()) return;
+            if (std::cin.fail()) {
+                std::cout << "\nstd::cin.fail() in Parser Function\nCheck if you have written the function correctly";
+                return;
+            }
 
             int res = fparser->Parse(function, "x");
-            std::cout << res << std::endl;
+            //std::cout << res << std::endl;
             if (res < 0) break;
 
             //std::cout << std::string(res + 7, ' ') << "^\n"
@@ -35,10 +38,13 @@ void ParserFunction::SetFunction(int d) {
             std::cin.ignore(1000, '\n');
             std::cout << "f(x,y) = ";
             std::getline(std::cin, function);
-            if (std::cin.fail()) return;
+            if (std::cin.fail()) {
+                std::cout << "\nstd::cin.fail() in Parser Function\nCheck if you have written the function correctly";
+                return;
+            }
 
             int res = fparser->Parse(function, "x,y");
-            std::cout << res << std::endl;
+            //std::cout << res << std::endl;
             if (res < 0) break;
 
             //std::cout << std::string(res + 7, ' ') << "^\n"
