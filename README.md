@@ -29,8 +29,33 @@ The repository contains the code and report for the Programming Concepts in Scie
 
 ## Structure
 
+Link to doxygene: make a link
+
+### main
+Interface with the user. All calculations are done here.
+
+### Initialization
+Class of the function to use in the main.
+
+### Integrator
+Regroups the different method to integrate the function. Other integration method can be implemented following the model of AbstractIntegrator.
+Available methods are:
+- Midpoint method
+- Trapezoidal method
+- Cavalieri-Simpson
+
+### Function
+Regroups the different method to get the function. Other methods to get the function can be implemented following the model of AbstractFunction.
+Available methods:
+- get the function from input in the terminal
+- get the function by writing it directly in the code
+- get the function by composing it
+
+### Test
 To do
 
 ## Usage
-
-To do
+```Bash
+git clone https://github.com/leotrentini22/integration.git
+```
+Open the file "main.cpp" and run it.
