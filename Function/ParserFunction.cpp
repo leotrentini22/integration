@@ -20,8 +20,17 @@ void ParserFunction::SetFunction(int d) {
     while(true)
     {   if (d==1) {
             std::cin.ignore(1000, '\n');
+            std::cout << "You are in one dimension, please be aware to use 'x' as only variable\n";
             std::cout << "f(x) = ";
             std::getline(std::cin, function);
+            if (function.find("y") != std::string::npos) {
+                std::cout << "\nstd::cin.fail() in Parser Function\nCheck if you have written the function correctly\n";
+                return;
+            }
+            if (function.find("z") != std::string::npos) {
+                std::cout << "\nstd::cin.fail() in Parser Function\nCheck if you have written the function correctly\n";
+                return;
+            }
             if (std::cin.fail()) {
                 std::cout << "\nstd::cin.fail() in Parser Function\nCheck if you have written the function correctly";
                 return;
@@ -36,6 +45,7 @@ void ParserFunction::SetFunction(int d) {
         }
         else if (d==2){
             std::cin.ignore(1000, '\n');
+            std::cout << "You are in two dimensions, please be aware to use 'x' and 'y'  as only variables\n";
             std::cout << "f(x,y) = ";
             std::getline(std::cin, function);
             if (std::cin.fail()) {

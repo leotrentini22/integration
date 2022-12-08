@@ -45,18 +45,16 @@
 #include "Integrator/TrapezoidalIntegrator.hpp"
 #include "Integrator/SimpsonIntegrator.hpp"
 #include "Initialization.hpp"
+#include <cassert>
 
 
 int main(){
+
     Initialization init;
     init.SetDimension();
     init.SetParameters();
     init.ChooseMethod();
-
     init.SetFunctionToIntegrate();
-    //AbstractFunction* pfunction;
-    //pfunction = new ParserFunction;
-    //init.SetFunctionToIntegrate(pfunction);
     init.CalculateIntegral();
     init.PrintResult();
 

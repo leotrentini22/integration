@@ -59,10 +59,13 @@ void Initialization::SetParameters(){
     do{
     std::cout<<"\nSet N (it has to be integer and positive): ";
     std::cin>> N;
+        if (N==0){
+            std::cout << "\nN not valid, null! Retry\n";
+        }
     if (N<0){
         std::cout << "\nN not valid, negative! Retry\n";
     }
-    }while(N<0);
+    }while(N<1);
 
     // if 2D, we inizialize y
     if(d==2){
@@ -77,12 +80,15 @@ void Initialization::SetParameters(){
             }
         }while(initialY>finalY);
         do{
-            std::cout<<"\nSet M (it has to be integer and positive): ";
+            std::cout<<"\nSet M (it has to be integer and (strictly) positive): ";
             std::cin>> M;
+            if (M==0){
+                std::cout << "\nM not valid, null! Retry\n";
+            }
             if (M<0){
                 std::cout << "\nM not valid, negative! Retry\n";
             }
-        }while(M<0);
+        }while(M<1);
     }
 }
 
@@ -92,10 +98,10 @@ void Initialization::ChooseMethod() {
     do{
         std::cout<<"\nSet method to integrate:\n - insert 1 for Midpoint \n - insert 2 for Trapezoidal \n - insert 3 for Cavalieri-Simpson\nMETHOD: ";
         std::cin>> m;
-        if (m<0||m>3){
+        if (m<1||m>3){
             std::cout<<"\nMethod not valid, it has to be 1, 2 or 3! Retry\n";
         }
-    }while(m<0||m>3);
+    }while(m<1||m>3);
 }
 
 

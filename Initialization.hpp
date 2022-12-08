@@ -22,8 +22,10 @@ private:
     int N,M;
 
     //d: dimension of the function to integrate
-    //m: method to intgrate (1 Midpoint, 2: Trapezoidal, 3: Cavalieri-Simpson)
-    int d,m;
+    int d;
+    //m: method to integrate (1 Midpoint, 2: Trapezoidal, 3: Cavalieri-Simpson)
+    int m;
+    //result: result of the integration
     double result;
 
     //pointer to the function to integrate:
@@ -36,13 +38,27 @@ public:
     //Destructor:
     ~Initialization();
 
-    //Method:
+    //Methods to set members:
     void SetDimension();
     void SetParameters();
     void ChooseMethod();
     void SetFunctionToIntegrate();
+
+    //Method to get members:
+    double GetInitialX() {return initialX;};
+    double GetFinalX() {return finalX;};
+    double GetInitialY() {return initialY;};
+    double GetFinalY() {return finalY;};
+    int GetN(){return N;};
+    int GetM(){return M;};
+    int GetDimension(){return d;};
+    int GetMethod(){return m;};
+    double GetResult(){return result;};
+
     double CalculateIntegral();
+
     void PrintResult() const;
+
 
     // Write down result to file
 
