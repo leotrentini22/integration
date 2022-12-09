@@ -20,17 +20,11 @@ void ParserFunction::SetFunction(int d) {
     while(true)
     {   if (d==1) {
             std::cin.ignore(1000, '\n');
+            std::cout << "Enter the function to integrate\n";
             std::cout << "You are in one dimension, please be aware to use 'x' as only variable\n";
             std::cout << "f(x) = ";
             std::getline(std::cin, function);
-            if (function.find("y") != std::string::npos) {
-                std::cout << "\nstd::cin.fail() in Parser Function\nCheck if you have written the function correctly\n";
-                return;
-            }
-            if (function.find("z") != std::string::npos) {
-                std::cout << "\nstd::cin.fail() in Parser Function\nCheck if you have written the function correctly\n";
-                return;
-            }
+
             if (std::cin.fail()) {
                 std::cout << "\nstd::cin.fail() in Parser Function\nCheck if you have written the function correctly";
                 return;
@@ -39,12 +33,14 @@ void ParserFunction::SetFunction(int d) {
             int res = fparser->Parse(function, "x");
             //std::cout << res << std::endl;
             if (res < 0) break;
+            std::cout << "\nError in building the function\nCheck if you have written the function correctly (check typos, variables...)\npress ENTER to retry\n";
 
             //std::cout << std::string(res + 7, ' ') << "^\n"
             //          << fparser->ErrorMsg() << "\n\n";
         }
         else if (d==2){
             std::cin.ignore(1000, '\n');
+            std::cout << "Enter the function to integrate\n";
             std::cout << "You are in two dimensions, please be aware to use 'x' and 'y'  as only variables\n";
             std::cout << "f(x,y) = ";
             std::getline(std::cin, function);
@@ -56,6 +52,7 @@ void ParserFunction::SetFunction(int d) {
             int res = fparser->Parse(function, "x,y");
             //std::cout << res << std::endl;
             if (res < 0) break;
+            std::cout << "\nError in building the function\nCheck if you have written the function correctly (check typos, variables...)\npress ENTER to retry\n";
 
             //std::cout << std::string(res + 7, ' ') << "^\n"
             //          << fparser->ErrorMsg() << "\n\n";
