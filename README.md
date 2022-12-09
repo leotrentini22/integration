@@ -35,27 +35,28 @@ Link to doxygene: make a link
 Interface with the user. All calculations are done here.
 
 ### Initialization
-Class of the function to use in the main.
+Class of the methods to use in the main.
 
 ### Integrator
-Regroups the different method to integrate the function. Other integration method can be implemented following the model of AbstractIntegrator.
-Available methods are:
-- Midpoint method
-- Trapezoidal method
-- Cavalieri-Simpson
+Regroups the different numerical classes to integrate the function. Other integration methods can be implemented following the model of AbstractIntegrator.
+Available classes are:
+- `Midpoint integrator`
+- `Trapezoidal integrator`
+- `Cavalieri-Simpson integrator`
 
 ### Function
-Regroups the different method to get the function. Other methods to get the function can be implemented following the model of AbstractFunction.
+Regroups the different classes to get the function from user. Other classes to get the function can be implemented following the model of AbstractFunction.
 Available methods:
-- get the function from input in the terminal
-- get the function by writing it directly in the code
-- get the function by composing it
+- get the function from input in the terminal using `ParserFunction`
+- get the function by writing it directly in the code using `ForderFunction`
+- get the function by composing it using `CodedFunction`
 
 ### Test
 To do
 
 ## Usage
+First of all, you need to clone the repository
 ```Bash
 git clone https://github.com/leotrentini22/integration.git
 ```
-Open the file "main.cpp" and run it.
+Then, build and run `main.cpp` and follow the instructions on the screen
