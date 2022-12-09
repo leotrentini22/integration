@@ -59,4 +59,6 @@ First of all, you need to clone the repository
 ```Bash
 git clone https://github.com/leotrentini22/integration.git
 ```
-Then, build and run `main.cpp` and follow the instructions on the screen
+Then, build and run `main.cpp` (with Clion or in the terminal) and follow the instructions on the screen
+
+<p align="right">(<a href="#top">Back to top</a>)</p>
