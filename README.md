@@ -51,6 +51,8 @@ Available methods:
 - get the function by writing it directly in the code using `ForderFunction`
 - get the function by composing it using `CodedFunction`
 
+For `ParserFunction`, we used an [external library](http://warp.povusers.org/FunctionParser/)
+
 ### Test
 To do
 
