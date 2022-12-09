@@ -31,7 +31,7 @@ The repository contains the code and report for the Programming Concepts in Scie
 
 Link to doxygene: make a link
 
-### main
+### Main
 Interface with the user. All calculations are done here.
 
 ### Initialization
@@ -51,12 +51,19 @@ Available methods:
 - get the function by writing it directly in the code using `ForderFunction`
 - get the function by composing it using `CodedFunction`
 
+For `ParserFunction`, we used an [external library](http://warp.povusers.org/FunctionParser/)
+
 ### Test
 To do
 
 ## Usage
-First of all, you need to clone the repository
+1. First of all, you need to clone the repository
 ```Bash
 git clone https://github.com/leotrentini22/integration.git
 ```
-Then, build and run `main.cpp` and follow the instructions on the screen
+2. Then, build and run `main.cpp` (with Clion or in the terminal) and follow the instructions on the screen
+
+## Possible developments
+To do
+
+<p align="right">(<a href="#top">Back to top</a>)</p>
