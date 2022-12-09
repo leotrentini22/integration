@@ -2,6 +2,8 @@
 // Created by Odile on 03.12.2022.
 //
 
+// methods for Initialization class
+
 
 #include <iostream>
 #include <cmath>
@@ -43,7 +45,7 @@ void Initialization::SetDimension() {
 }
 
 void Initialization::SetParameters(){
-    /** Set domain extremes */
+    /** Set domain extremes and number of partitions*/
 
     std::cout<<"\nSet the parameters for the x axes:\ndomain extremes [a,b] \nN = Number of partitions for x";
     do{
@@ -94,7 +96,7 @@ void Initialization::SetParameters(){
 
 
 void Initialization::ChooseMethod() {
-    /** Choose the method that will be used to calculate the integral */
+    /** Choose the numerical method that will be used to calculate the integral */
     do{
         std::cout<<"\nSet method to integrate:\n - insert 1 for Midpoint \n - insert 2 for Trapezoidal \n - insert 3 for Cavalieri-Simpson\nMETHOD: ";
         std::cin>> m;
@@ -106,18 +108,22 @@ void Initialization::ChooseMethod() {
 
 
 void Initialization::SetFunctionToIntegrate() {
-    /**here you choose how to set the function
-     * ParserFunction = function from string
-     * ForderFunction = function assembled step by step from user (not implemented for 2D)
-     * CodedFunction = function directly coded (need to be recompiled everytime)
+    /**Choose method to get function from user and set the function.
+     * - ParserFunction = function from string
+     * - ForderFunction = function assembled step by step from user (not implemented for 2D)
+     * - CodedFunction = function directly coded (need to be recompiled everytime)
      */
 
+    //if you want to change method to get the function from user, change the code here
+    //not choosable from user, in order to avoid undesirable errors
     pfunction = new ParserFunction;
     pfunction -> SetFunction(d);
 }
 
 double Initialization::CalculateIntegral() {
-    /** Depending on the method chosen, calculate the integral of the function */
+    /** Depending on the method chosen, calculate the integral of the function
+     * \return result
+     */
 
     AbstractIntegrator *pIntegration = 0;
 
@@ -153,6 +159,8 @@ double Initialization::CalculateIntegral() {
 
     else{
         // Midpoint Integrator
+        //"else" is just to set it as standard integrator (if m is somehow not chosen)
+
         pIntegration = new MidpointIntegrator;
         if(d==2){
             pIntegration->SetNumberOfPartitions(N,M);

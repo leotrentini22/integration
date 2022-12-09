@@ -2,7 +2,8 @@
 // Created by Leonardo Trentini on 25/11/2022.
 //
 
-//File with the methods for the class Function defined in "function.hpp" -- not finished
+// methods for the class Abstract Function - 1D and 2D
+
 #include "AbstractFunction.hpp"
 #include <vector>
 #include <cmath>

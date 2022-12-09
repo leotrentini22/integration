@@ -2,7 +2,7 @@
 // Created by Leonardo Trentini on 26/11/2022.
 //
 
-//methods for Simpson Integrator - 1D and 2D
+// methods for Simpson Integrator - 1D and 2D
 
 #include "SimpsonIntegrator.hpp"
 #include <cmath>
@@ -19,6 +19,7 @@ SimpsonIntegrator::~SimpsonIntegrator() {}
 double SimpsonIntegrator::Integrate() {
     /**
      * Implements Simpson integration in 1D and 2D
+     * \return result
      */
     double x_first=GetFirstExtreme();
     double h=GetStepSize();
@@ -61,7 +62,7 @@ double SimpsonIntegrator::Integrate() {
 
 double SimpsonIntegrator::getCoeffS(int i, int j, int Nx, int My){
     /**
-     * Computes the coefficients for Simpson integration in 2D
+     * \return the coefficients for Simpson integration in 2D
      */
     if((i==0&&j==0)||(i==0&&j==(My-1))||(i==(Nx-1)&&j==0)||(i==(Nx-1)&&j==(My-1))){
         return 1;

@@ -1,13 +1,6 @@
-/*
- * AbstractIntegrator.hpp
- *
- *  Created on: Oct 25, 2012
- *      Author: Leonardo Trentini
- */
-
-// I think we might use the structure we used in exercise for ODEs:
-// - An abstract class, called abstract integration
-// - Three derived classes for Midpoint, Trapezoidal, Cavalieri-Simpson
+//
+// Created by Leonardo Trentini on 26/11/2022.
+//
 
 #ifndef ABSTRACTINTEGRATOR_HPP_
 #define ABSTRACTINTEGRATOR_HPP_
@@ -35,11 +28,8 @@ private:
     int N_partitions; // on x dimension
     int M_partitions; // on y dimension
 
-    //function to integrate, 1D and 2D (I don't know how to put a single function that works for both, there is a problem with pointers)
-    AbstractFunction *f; // 1D
-
-    //double (*function1D)(double x);
-    //double (*function2D)(double x, double y); // 2D
+    //function to integrate
+    AbstractFunction *f;
 
 protected:
     double result;

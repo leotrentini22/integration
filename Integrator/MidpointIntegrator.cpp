@@ -2,7 +2,7 @@
 // Created by Leonardo Trentini on 26/11/2022.
 //
 
-//methods for Midpoint Integrator - 1D and 2D
+// methods for Midpoint Integrator - 1D and 2D
 
 #include "MidpointIntegrator.hpp"
 #include <cmath>
@@ -19,6 +19,7 @@ MidpointIntegrator::~MidpointIntegrator() {}
 double MidpointIntegrator::Integrate() {
     /**
      * Implements Midpoint integration in 1D and 2D
+     * \return result
      */
 
     double x_first=GetFirstExtreme();

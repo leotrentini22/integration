@@ -2,7 +2,7 @@
 // Created by Leonardo Trentini on 26/11/2022.
 //
 
-//methods for Trapezoidal Integrator - 1D and 2D
+// methods for Trapezoidal Integrator - 1D and 2D
 
 #include "TrapezoidalIntegrator.hpp"
 #include <cmath>
@@ -19,6 +19,7 @@ TrapezoidalIntegrator::~TrapezoidalIntegrator() {}
 double TrapezoidalIntegrator::Integrate() {
     /**
      * Implements Trapezoidal integration in 1D and 2D
+     * \return result
      */
 
     double x_first=GetFirstExtreme();

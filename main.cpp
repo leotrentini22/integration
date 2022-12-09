@@ -2,17 +2,6 @@
 // Created by Odile on 25.11.2022.
 //
 
-
-// next things to do:
-// - check if "ForderFunction" works correctly
-// - implement "ForderFunction" and in 2D
-// - Doxygen
-// - Tests
-
-// extras
-// - extend for stranger domains
-// - plot
-
 /*! \file */
 
 /** Implementation of three different methods for the numerical computation of integrals in one or two dimensions
