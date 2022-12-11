@@ -3,7 +3,7 @@
 //
 
 /**
- * Test of "Main" in order to check if everything works correctly
+ * Test of "Main", in order to check if the initialization works correctly
  */
 
 

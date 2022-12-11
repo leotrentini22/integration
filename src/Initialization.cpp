@@ -116,6 +116,7 @@ void Initialization::SetFunctionToIntegrate() {
 
     //if you want to change method to get the function from user, change the code here
     //not choosable from user, in order to avoid undesirable errors
+
     pfunction = new ParserFunction;
     pfunction -> SetFunction(d);
 }

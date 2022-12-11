@@ -7,7 +7,7 @@
 #include "AbstractIntegrator.hpp"
 
 AbstractIntegrator::AbstractIntegrator()
-    : x0(), xN(), N_partitions(), result(), f() {
+    : x0(), xN(), y0(), yM(), N_partitions(), M_partitions(), result(), f() {
 
 }
 

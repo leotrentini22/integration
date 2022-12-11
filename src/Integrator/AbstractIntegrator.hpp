@@ -44,14 +44,13 @@ public:
     void SetExtremes(const double x_a, const double x_b);
     void SetFunction(AbstractFunction *function);
 
-    double Function(double x) const;
+    double Function(double x) const; //returns the function evaluated at x
 
     //Other public methods - 2 D
     void SetNumberOfPartitions(const int N, const int M);
     void SetExtremes(const double x_a, const double x_b, const double x_c, const double x_d);
-    //void SetFunction(double (*f)(double x, double y));
 
-    double Function(double x, double y) const;
+    double Function(double x, double y) const; //returns the function evaluated at (x,y)
 
     // Pure virtual method "Integrate"
 
@@ -59,7 +58,7 @@ public:
 
     // Get methods
 
-    double GetResult() const { return result; } // to use only after "Integrate"
+    double GetResult() const { return result; } //to use only after integrate
 
        // if 1 D
 
