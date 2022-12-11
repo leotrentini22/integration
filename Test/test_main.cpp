@@ -7,8 +7,8 @@
  */
 
 
-#include "../Function/AbstractFunction.hpp"
-#include "../Initialization.hpp"
+#include "../src/Function/AbstractFunction.hpp"
+#include "../src/Initialization.hpp"
 #include <cassert>
 
 

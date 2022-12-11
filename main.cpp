@@ -26,14 +26,14 @@
 #include <cmath>
 #include <fstream>
 #include <vector>
-#include "Function/AbstractFunction.hpp"
-#include "Function/ForderFunction.hpp"
-#include "Function/ParserFunction.hpp"
-#include "Integrator/AbstractIntegrator.hpp"
-#include "Integrator/MidpointIntegrator.hpp"
-#include "Integrator/TrapezoidalIntegrator.hpp"
-#include "Integrator/SimpsonIntegrator.hpp"
-#include "Initialization.hpp"
+#include "src/Function/AbstractFunction.hpp"
+#include "src/Function/ForderFunction.hpp"
+#include "src/Function/ParserFunction.hpp"
+#include "src/Integrator/AbstractIntegrator.hpp"
+#include "src/Integrator/MidpointIntegrator.hpp"
+#include "src/Integrator/TrapezoidalIntegrator.hpp"
+#include "src/Integrator/SimpsonIntegrator.hpp"
+#include "src/Initialization.hpp"
 #include <cassert>
 
 

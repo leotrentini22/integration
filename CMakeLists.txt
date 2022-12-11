@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 project(integration)
 
 set(CMAKE_CXX_STANDARD 20)
-add_subdirectory(fparser)
+add_subdirectory(src/fparser)
 
 #Googletest
 include(FetchContent)
@@ -17,10 +17,10 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 # Create an executable to build:
 add_executable(hello_test hello_test.cc)
-add_executable(test_integrators Test/test_integrators.cpp Function/AbstractFunction.cpp Integrator/MidpointIntegrator.cpp Integrator/AbstractIntegrator.cpp Integrator/TrapezoidalIntegrator.cpp Integrator/SimpsonIntegrator.cpp Function/AbstractFunction.cpp Function/ForderFunction.cpp Function/ParserFunction.cpp fparser/fparser.cc Initialization.cpp)
-add_executable(main main.cpp Function/AbstractFunction.cpp Integrator/MidpointIntegrator.cpp Integrator/AbstractIntegrator.cpp Integrator/TrapezoidalIntegrator.cpp Integrator/SimpsonIntegrator.cpp Function/AbstractFunction.cpp Function/ForderFunction.cpp Function/ParserFunction.cpp fparser/fparser.cc Initialization.cpp)
-add_executable(testexprtk testexprtk.cpp Function/AbstractFunction.cpp Integrator/MidpointIntegrator.cpp Integrator/AbstractIntegrator.cpp Integrator/TrapezoidalIntegrator.cpp Integrator/SimpsonIntegrator.cpp Function/AbstractFunction.cpp Function/ForderFunction.cpp Function/ParserFunction.cpp Function/CodedFunction.cpp fparser/fparser.cc)
-add_executable(test_main Test/test_main.cpp Function/AbstractFunction.cpp Integrator/MidpointIntegrator.cpp Integrator/AbstractIntegrator.cpp Integrator/TrapezoidalIntegrator.cpp Integrator/SimpsonIntegrator.cpp Function/AbstractFunction.cpp Function/ForderFunction.cpp Function/ParserFunction.cpp fparser/fparser.cc Initialization.cpp)
+add_executable(test_integrators Test/test_integrators.cpp src/Function/AbstractFunction.cpp src/Integrator/MidpointIntegrator.cpp src/Integrator/AbstractIntegrator.cpp src/Integrator/TrapezoidalIntegrator.cpp src/Integrator/SimpsonIntegrator.cpp src/Function/AbstractFunction.cpp src/Function/ForderFunction.cpp src/Function/ParserFunction.cpp src/fparser/fparser.cc src/Initialization.cpp)
+add_executable(main main.cpp src/Function/AbstractFunction.cpp src/Integrator/MidpointIntegrator.cpp src/Integrator/AbstractIntegrator.cpp src/Integrator/TrapezoidalIntegrator.cpp src/Integrator/SimpsonIntegrator.cpp src/Function/AbstractFunction.cpp src/Function/ForderFunction.cpp src/Function/ParserFunction.cpp src/fparser/fparser.cc src/Initialization.cpp)
+add_executable(testexprtk testexprtk.cpp src/Function/AbstractFunction.cpp src/Integrator/MidpointIntegrator.cpp src/Integrator/AbstractIntegrator.cpp src/Integrator/TrapezoidalIntegrator.cpp src/Integrator/SimpsonIntegrator.cpp src/Function/AbstractFunction.cpp src/Function/ForderFunction.cpp src/Function/ParserFunction.cpp src/Function/CodedFunction.cpp src/fparser/fparser.cc)
+add_executable(test_main Test/test_main.cpp src/Function/AbstractFunction.cpp src/Integrator/MidpointIntegrator.cpp src/Integrator/AbstractIntegrator.cpp src/Integrator/TrapezoidalIntegrator.cpp src/Integrator/SimpsonIntegrator.cpp src/Function/AbstractFunction.cpp src/Function/ForderFunction.cpp src/Function/ParserFunction.cpp src/fparser/fparser.cc src/Initialization.cpp)
 
 #Create a link to library:
 target_link_libraries(hello_test GTest::gtest_main)
