@@ -18,14 +18,26 @@
   </ol>
 </details>
 
+
 ## General Information
 
 The repository contains the code and report for the Programming Concepts in Scientific Computing (MATH-458) project, an implementation of three different methods for the numerical computation of integrals in one or two dimensions
+
 
 ## Our Team
 
 - Leonardo Trentini: [@leotrentini22](https://github.com/leotrentini22)
 - Odile Montarnal: [@Dod-il](https://github.com/Dod-il)
+
+
+## Usage
+1. First of all, you need to clone the repository
+```Bash
+git clone https://github.com/leotrentini22/integration.git
+```
+2. Then, build and run `main.cpp` (with Clion or in the terminal) and follow the instructions on the screen
+
+
 
 ## Structure
 
@@ -56,12 +68,6 @@ We implemented two different tests on our program.
 In `test_integrators` we evaluate the accuracy of our numerical methods using [Google Tests](http://google.github.io/googletest/), with a certain tolerance of precision.
 In `test_main` we check the validity of Initialization class, throughout a series of assertions that evaluate if, given wrong inputs by the user, our methods behave as expected.
 
-## Usage
-1. First of all, you need to clone the repository
-```Bash
-git clone https://github.com/leotrentini22/integration.git
-```
-2. Then, build and run `main.cpp` (with Clion or in the terminal) and follow the instructions on the screen
 
 ## Possible developments
 Our program can be easily extended to more dimensions.
