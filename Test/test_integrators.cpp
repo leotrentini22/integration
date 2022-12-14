@@ -1,7 +1,3 @@
-//
-// Created by Leonardo Trentini on 09/12/2022.
-//
-
 /**
  * Google Test to verify the accuracy of numerical integrators
  */

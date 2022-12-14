@@ -1,7 +1,3 @@
-//
-// Created by Odile on 25.11.2022.
-//
-
 /**
  * Test of "Main", in order to check if the initialization works correctly
  */

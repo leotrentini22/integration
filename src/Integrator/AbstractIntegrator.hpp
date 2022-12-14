@@ -1,7 +1,3 @@
-//
-// Created by Leonardo Trentini on 26/11/2022.
-//
-
 #ifndef ABSTRACTINTEGRATOR_HPP_
 #define ABSTRACTINTEGRATOR_HPP_
 

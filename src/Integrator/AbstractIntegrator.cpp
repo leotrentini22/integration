@@ -1,7 +1,3 @@
-//
-// Created by Leonardo Trentini on 26/11/2022.
-//
-
 //methods for Abstract Integrator class - 1D and 2D
 
 #include "AbstractIntegrator.hpp"

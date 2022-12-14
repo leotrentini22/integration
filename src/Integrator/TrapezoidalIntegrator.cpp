@@ -1,7 +1,3 @@
-//
-// Created by Leonardo Trentini on 26/11/2022.
-//
-
 // methods for Trapezoidal Integrator - 1D and 2D
 
 #include "TrapezoidalIntegrator.hpp"

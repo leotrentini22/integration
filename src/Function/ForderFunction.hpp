@@ -1,7 +1,3 @@
-//
-// Created by Leonardo Trentini on 25/11/2022.
-//
-
 //I defined a class Function as suggested from the TA, not sure if it is the best way
 
 #ifndef FORDERFUNCTION_HPP_
@@ -12,14 +8,15 @@
 #include "AbstractFunction.hpp"
 
 /**
- * Daughter class of AbstractFunction
+ * \class Parser Function
+ * \brief Daughter class of AbstractFunction
  * it implements the methods to get a function from built step by step iteratively by the user
  */
 
 class ForderFunction : public AbstractFunction{
 protected:
-    std::vector<int> forder;
-    std::vector<int> corder;
+    std::vector<int> forder; ///< vector that stores the sequence of operations chosen by user
+    std::vector<int> corder; ///< vector that stores the sequence of constants (multiplied or added) chosen by user
 public:
     // Constructor:
     ForderFunction();
@@ -29,9 +26,26 @@ public:
 
     //Methods:
 
+    /**
+     * virtual method, overriden from mother class Abstract Function, to let the user set the function to integrate
+     * Compose a function iteratively from user choices
+     * @param d = dimension in which we are working
+     */
     virtual void SetFunction(int d) override;
 
+    /**
+     * virtual method, overriden from mother class Abstract Function, to evaluate f(x) (1D) \n
+     * @param x
+     * @return f(x)
+     */
     virtual double getFunctionElement(double x) override;
+
+    /**
+     * virtual method, overriden from mother class Abstract Function, to evaluate f(x,y) (2D)
+     * @param x
+     * @param y
+     * @return f(x,y)
+     */
     virtual double getFunctionElement(double x, double y) override;
 
 };

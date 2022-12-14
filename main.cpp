@@ -1,14 +1,10 @@
-//
-// Created by Odile on 25.11.2022.
-//
-
 /*! \file */
 
 /** Implementation of three different methods for the numerical computation of integrals in one or two dimensions
- * \f[
+ * \f$
  * |I|=\left| \int_{\Omega} f(x,y) dxdy
  * \right|
- * \f]
+ * \f$
  * Structure:
  * AbstractIntegrator = Abstract class of integrators, with 3 derived classes
  * MidpointIntegrator, TrapezoidalIntegrator, SimpsonIntegrator
@@ -16,10 +12,6 @@
  * AbstractFunction = Abstract class of function, with 3 derived classes (ways of getting function from user)
  * ForderFunction, ParserFunction, CodedFunction
  */
-
-
-//HOW TO RUN
-//click "build", "run" and follow the instructions of the screen
 
 
 #include <iostream>

@@ -1,7 +1,3 @@
-//
-// Created by Leonardo Trentini on 26/11/2022.
-//
-
 // methods for Simpson Integrator - 1D and 2D
 
 #include "SimpsonIntegrator.hpp"

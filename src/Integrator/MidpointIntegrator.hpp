@@ -1,7 +1,3 @@
-//
-// Created by Leonardo Trentini on 26/11/2022.
-//
-
 #ifndef MIDPOINTINTEGRATOR_HPP_
 #define MIDPOINTINTEGRATOR_HPP_
 

@@ -1,6 +1,3 @@
-//
-// Created by Leonardo Trentini on 02/12/2022.
-//
 #include "ForderFunction.hpp"
 #include <cmath>
 #include <iostream>
@@ -13,15 +10,14 @@ ForderFunction::ForderFunction(): forder(), corder(){}
 ForderFunction::~ForderFunction() {}
 
 //Methods
+
 double ForderFunction::getFunctionElement(double x) {
-    /**
-     * Evaluate the function (previously inserted) for a certain point x (1D)
-     */
-    // Goes through a list of command already inserted and executes the operation
+
+    // Goes through a list of command already inserted and executes the operations
     double function = x;
     int i;
     int j=0;
-    //Goes through list fo command
+    //Goes through list fo commands
     for (i =0; i<=forder.size();i++) {
         //f is the basic operation
         int f = forder[i];
@@ -59,10 +55,8 @@ double ForderFunction::getFunctionElement(double x) {
 }
 
 double ForderFunction::getFunctionElement(double x, double y) {
-    /**
-     * Evaluate the function (previously inserted) for a certain point with coordinates (x,y) (2D)
-     */
 
+    // Goes through a list of command already inserted and executes the operations
     double function = x;
     int i;
     int j=0;
@@ -109,9 +103,6 @@ double ForderFunction::getFunctionElement(double x, double y) {
 }
 
 void ForderFunction::SetFunction(int d) {
-    /**
-     * Compose a function iteratively from user choices (implemented only 1D)
-     */
 
      //list of command to compose the function
     std::string command;

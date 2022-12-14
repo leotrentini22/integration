@@ -1,7 +1,3 @@
-//
-// Created by Odile on 02.12.2022.
-//
-
 #include "ParserFunction.hpp"
 #include <iostream>
 #include <string>

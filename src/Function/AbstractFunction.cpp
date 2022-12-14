@@ -1,7 +1,3 @@
-//
-// Created by Leonardo Trentini on 25/11/2022.
-//
-
 // methods for the class Abstract Function - 1D and 2D
 
 #include "AbstractFunction.hpp"
