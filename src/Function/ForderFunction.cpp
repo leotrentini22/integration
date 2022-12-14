@@ -6,14 +6,61 @@
 #include <iostream>
 #include <vector>
 
-//Constructors
+//Constructor
 ForderFunction::ForderFunction(): forder(), corder(){}
+
+//Destructor
 ForderFunction::~ForderFunction() {}
 
 //Methods
 double ForderFunction::getFunctionElement(double x) {
     /**
      * Evaluate the function (previously inserted) for a certain point x (1D)
+     */
+    // Goes through a list of command already inserted and executes the operation
+    double function = x;
+    int i;
+    int j=0;
+    //Goes through list fo command
+    for (i =0; i<=forder.size();i++) {
+        //f is the basic operation
+        int f = forder[i];
+        //c is the added constant
+        int c = corder[j];
+
+        //execute an operation depending on the command entered
+        switch (f) {
+            case 1:
+                function = sin(function);
+                break;
+            case 2:
+                function = cos(function);
+                break;
+            case 3:
+                function = exp(function);
+                break;
+            case 4:
+                j++;
+                function = function + c;
+                break;
+            case 5:
+                j++;
+                function = function * c;
+                break;
+            case 6:
+                function = function;
+                break;
+            default:
+                function = x;
+
+        }
+    }
+    return function;
+}
+
+double ForderFunction::getFunctionElement(double x, double y) {
+    /**
+     * Evaluate the function (previously inserted) for a certain point with coordinates (x,y) (2D)
      */
 
     double function = x;
@@ -23,41 +70,42 @@ double ForderFunction::getFunctionElement(double x) {
         int f = forder[i];
         int c = corder[j];
 
-        if (f == 1) {
-            function = sin(function);
-        }
-        if (f == 2) {
-            function = cos(function);
-        }
-        if (f == 3) {
-            function = exp(function);
-        }
-        if (f == 4) {
-            j++;
-            function = function + c;
-        }
-        if (f == 5) {
-            j++;
-            function = function * c;
-        }
-        if (f == 6) {
-            function = function;
-        }
-        else{
-            function = x;
-        }
+        switch (f) {
+            case 1:
+                function = sin(function);
+                break;
+            case 2:
+                function = cos(function);
+                break;
+            case 3:
+                function = exp(function);
+                break;
+            case 4:
+                j++;
+                function = function + c;
+                break;
+            case 5:
+                j++;
+                function = function * c;
+                break;
+            case 6:
+                function = function;
+                break;
+            case 7:
+                function = function*y;
+                break;
+            case 8:
+                function = function +y;
+                break;
+            case 9:
+                function = pow(function,y);
+                break;
+            default:
+                function = x;
 
+        }
     }
     return function;
-}
-
-double ForderFunction::getFunctionElement(double x, double y) {
-    /**
-     * Evaluate the function (previously inserted) for a certain point with coordinates (x,y) (2D)
-     * NOT IMPLEMENTED
-     */
-
-    return x*y;
 }
 
 void ForderFunction::SetFunction(int d) {
@@ -65,8 +113,13 @@ void ForderFunction::SetFunction(int d) {
      * Compose a function iteratively from user choices (implemented only 1D)
      */
 
-    //list of the command to create our function:
-    // initialization of parameter:
+     //list of command to compose the function
+    std::string command;
+    //Different command depending on the dimension:
+    if (d==1){command = "Choose sin = 1,\n cos = 2,\n exp = 3,\n add a constant = 4,\n multiply by a constant = 5\n stop =-1 ";}
+    if (d ==2){command = "Choose sin = 1,\n cos = 2,\n exp = 3,\n add a constant = 4,\n multiply by a constant = 5,\n *y = 7,\n+y = 8,\n^y = 9 \nstop =-1 ";}
+
+    //initialization of parameter:
     int f = 0;
     int c = 0;
 
@@ -74,13 +127,16 @@ void ForderFunction::SetFunction(int d) {
     corder.push_back(1); // same
 
     //Compose the function and store the command:
-    std::cout << "right now f(x)=x" << std::endl;
+    std::cout << "By default, the function is f(x)=x" << std::endl;
+
     while (f >= 0) {
-        std::cout << "Choose sin = 1, cos = 2, exp = 3, add a constant = 4, multiply by a constant = 5 or stop =-1 "
+        std::cout << command
                   << std::endl;
-        std::cin >> f; //enter the command
+        std::cin >> f; //Enter the command
 
         forder.push_back(f); // Store
+
+        //special cases when use constant in the operation: have to store the constant wanted
         if (f == 4) {
             std::cout << "Value of the constant added: " << std::endl;
             std::cin >> c;
@@ -92,5 +148,6 @@ void ForderFunction::SetFunction(int d) {
             std::cin >> c;
             corder.push_back(c);
         }
+
     }
 }

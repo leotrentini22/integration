@@ -20,11 +20,13 @@
 //#include <gtest/gtest.h>
 
 
+// Constructor
 Initialization::Initialization()
    : initialX(), finalX(), initialY(), finalY(), N(), M(), d(), m(), result() {
-    this->pfunction = nullptr;
+    this->pfunction = 0;
 }
 
+//Destructor
 Initialization::~Initialization() {
     delete pfunction;
 }
@@ -32,12 +34,14 @@ Initialization::~Initialization() {
 
 
 void Initialization::SetDimension() {
-    /** Set dimension of the function to integrate */
+    /** Set dimension of the function to integrate. Dimension can be 1 or 2. */
     int dim = 0;
     do {
+        //Enter the dimension in the terminal. Dimension is stored in the variable d.
         std::cout << "Set the dimension (1 or 2): ";
         std::cin >> dim;
         if (dim < 1 || dim > 2){
+            //If dimension entered is wrong, it sends this message
             std::cout << "\nDimension not 1 or 2! Retry\n";
         }
     } while (dim < 1 || dim > 2);
@@ -46,22 +50,27 @@ void Initialization::SetDimension() {
 
 void Initialization::SetParameters(){
     /** Set domain extremes and number of partitions*/
-
+    //Enter in the terminal a and b (extremes of the x axis) and the number of partition N.
+    //a and b are stored in the variable initialX and finalX respectively. Partition is stored in N.
     std::cout<<"\nSet the parameters for the x axes:\ndomain extremes [a,b] \nN = Number of partitions for x";
     do{
+        //Set a and b
         std::cout<<"\nSet a: ";
         std::cin>> initialX;
         std::cout<<"\nSet b: ";
         std::cin>> finalX;
         if (initialX>finalX){
+            //Wrong input
             std::cout << "\nDomain not valid, a>b! Retry\n";
         }
     }while(initialX>finalX);
 
     do{
+        // Set N
     std::cout<<"\nSet N (it has to be integer and positive): ";
     std::cin>> N;
         if (N==0){
+            //Wrong input
             std::cout << "\nN not valid, null! Retry\n";
         }
     if (N<0){
@@ -69,7 +78,10 @@ void Initialization::SetParameters(){
     }
     }while(N<1);
 
-    // if 2D, we inizialize y
+    // If we are in 2D: Initiate the extremes on y axis and number of partition
+    //M: nummber of partition in y
+    //initialY: c
+    //finalY: d
     if(d==2){
         std::cout<<"\nSet the parameters for the y axes:\ndomain extremes [c,d] \nM = Number of partitions for y";
         do{
@@ -97,6 +109,7 @@ void Initialization::SetParameters(){
 
 void Initialization::ChooseMethod() {
     /** Choose the numerical method that will be used to calculate the integral */
+    //choice of method is stored in the variable m.
     do{
         std::cout<<"\nSet method to integrate:\n - insert 1 for Midpoint \n - insert 2 for Trapezoidal \n - insert 3 for Cavalieri-Simpson\nMETHOD: ";
         std::cin>> m;
@@ -110,14 +123,14 @@ void Initialization::ChooseMethod() {
 void Initialization::SetFunctionToIntegrate() {
     /**Choose method to get function from user and set the function.
      * - ParserFunction = function from string
-     * - ForderFunction = function assembled step by step from user (not implemented for 2D)
+     * - ForderFunction = function assembled step by step from user
      * - CodedFunction = function directly coded (need to be recompiled everytime)
      */
 
     //if you want to change method to get the function from user, change the code here
     //not choosable from user, in order to avoid undesirable errors
 
-    pfunction = new ParserFunction;
+    pfunction = new ForderFunction;
     pfunction -> SetFunction(d);
 }
 
@@ -175,6 +188,9 @@ double Initialization::CalculateIntegral() {
 
         result = pIntegration->Integrate();
     }
+
+    delete pIntegration;
+    //Result of the integration is stored in the variable result
     return result;
 }
 

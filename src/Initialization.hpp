@@ -53,7 +53,7 @@ public:
     int GetM(){return M;};
     int GetDimension(){return d;};
     int GetMethod(){return m;};
-    double GetResult(){return result;};
+    double GetResult(){return result;};//not used but usefull for other cases
 
     double CalculateIntegral();
 

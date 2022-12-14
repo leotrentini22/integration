@@ -22,7 +22,6 @@ public:
     virtual ~AbstractFunction();
 
     //Methods:
-
     virtual void SetFunction(int d)=0;
 
     virtual double getFunctionElement(double x)=0;

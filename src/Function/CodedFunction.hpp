@@ -21,8 +21,7 @@ public:
     ~CodedFunction();
 
     //Methods:
-
-    virtual void SetFunction(int d) override {};
+    virtual void SetFunction(int d) override{};
 
     virtual double getFunctionElement(double x) override;
     virtual double getFunctionElement(double x, double y) override;
