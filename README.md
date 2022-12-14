@@ -29,14 +29,11 @@ The repository contains the code and report for the Programming Concepts in Scie
 
 ## Structure
 
-By using Doxygene, an overview can be provided.
-
-
 ### Main
-Interface with the user. All calculations are done here.
+Interface with the user. All calculations are done here. It is written as concise as possible: all the set up is done in Initialization
 
 ### Initialization
-Class of the methods to use in the main.
+Class of the methods to use in the main in order to set up the problem and run calculations
 
 ### Integrator
 Regroups the different numerical classes to integrate the function. Other integration methods can be implemented following the model of AbstractIntegrator.
@@ -49,14 +46,15 @@ Available classes are:
 Regroups the different classes to get the function from user. Other classes to get the function can be implemented following the model of AbstractFunction.
 Available methods:
 - get the function from input in the terminal using `ParserFunction`
-- get the function by writing it directly in the code using `ForderFunction`
-- get the function by composing it using `CodedFunction`
-  - In this case, instead of using `SetFunction`, use `Function(x)` or `Function(x,y)`
+- get the function by writing it directly in the code using `CodedFunction`
+- get the function by composing it using `ForderFunction`
 
 For `ParserFunction`, we used an [external library](http://warp.povusers.org/FunctionParser/)
 
 ### Test
-Tests are lead on integration methods. Result of numerical integration is compared to the known result with a certain tolerance of precision.
+We implemented two different tests on our program. 
+In `test_integrators` we evaluate the accuracy of our numerical methods using [Google Tests](http://google.github.io/googletest/), with a certain tolerance of precision.
+In `test_main` we check the validity of Initialization class, throughout a series of assertions that evaluate if, given wrong inputs by the user, our methods behave as expected.
 
 ## Usage
 1. First of all, you need to clone the repository
@@ -66,6 +64,12 @@ git clone https://github.com/leotrentini22/integration.git
 2. Then, build and run `main.cpp` (with Clion or in the terminal) and follow the instructions on the screen
 
 ## Possible developments
-The code can be extended to stranger domain. This implies that a new abstract class should be created so that the way to get the domain can be changed easily. Also the methods to get the function can be used in other project. Finally, the method to integrate methods can be used in other project. In this case, the use of the terminal to initate parameters could be abandoned.
+Our program can be easily extended to more dimensions.
+
+It would be possible also to add more numerical methods, following the pattern provided by AbstractIntegrator.
+
+Moreover, the code can be extended to stranger domains. This implies that a new abstract class should be created so that the way to get the domain can be changed easily. The domain might be passed as a function, using Function Parser class. Then this domain can be divided in simpler domains, assembled by union.
+
+In addition, our program might be extended to work in complex domains. However, this extension would require to investigate better how does integration work in the theory of complex spaces. 
 
 <p align="right">(<a href="#top">Back to top</a>)</p>
