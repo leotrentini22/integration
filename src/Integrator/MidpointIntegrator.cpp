@@ -13,10 +13,6 @@ MidpointIntegrator::~MidpointIntegrator() {}
 // integration
 
 double MidpointIntegrator::Integrate() {
-    /**
-     * Implements Midpoint integration in 1D and 2D
-     * \return result
-     */
 
     double x_first=GetFirstExtreme();
     double h=GetStepSize();

@@ -199,7 +199,7 @@ double Initialization::CalculateIntegral() {
 }
 
 void Initialization::PrintResult() const {
-    /** print the results to the screen */
+
     std::cout<<"result = "<<result;
 }
 

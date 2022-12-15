@@ -5,51 +5,92 @@
 #include "../Function/AbstractFunction.hpp"
 
 /**
- * Abstract class of integrators, with 3 derived classes
- * MidpointIntegrator, TrapezoidalIntegrator, SimpsonIntegrator
- * Stores the extremes of the domain, the number of partitions and useful methods for the integration
+ * \class AbstractIntegrator
+ * \brief Abstract class of integrators, with 3 daughter classes \n
+ * The 3 daughter classes are MidpointIntegrator, TrapezoidalIntegrator, SimpsonIntegrator\n
+ * It stores the extremes of the domain, the number of partitions and useful methods for the integration
  */
 
 class AbstractIntegrator {
 private:
-    // extremes in x dimension
-    double x0;
-    double xN;
 
-    //extremes in y dimension
-    double y0;
-    double yM;
+    double x0; ///<first extreme in x dimension
+    double xN; ///<last extreme in x dimension
 
-    //number of partitions
-    int N_partitions; // on x dimension
-    int M_partitions; // on y dimension
+    double y0; ///<first extreme in y dimension
+    double yM; ///<last extreme in x dimension
 
-    //function to integrate
-    AbstractFunction *f;
+    int N_partitions; ///< number of partitions in x dimension
+    int M_partitions; ///< number of partitions in y dimension
+
+    AbstractFunction *f; ///<function to integrate
 
 protected:
     double result;
 public:
     // Constructor and destructor
-    AbstractIntegrator();
+    AbstractIntegrator(); ///< Constructor
 
-    virtual ~AbstractIntegrator();
+    virtual ~AbstractIntegrator(); ///<Destructor
 
     // Other public methods - 1 D
+    /**
+     * Set the number of partitions in 1D
+     * @param N = number of partitions
+     */
     void SetNumberOfPartitions(const int N);
+
+    /**
+     * Set extremes of the domain in 1D
+     * @param x_a = first extreme
+     * @param x_b = last extreme
+     */
     void SetExtremes(const double x_a, const double x_b);
+
+    /**
+     * Set the function to integrate
+     * @param function = pointer of Abstract Function, got from the user in different manners (see ::AbstractFunction)
+     */
     void SetFunction(AbstractFunction *function);
 
-    double Function(double x) const; //returns the function evaluated at x
+    /**
+     * Evaluation of our function in 1D
+     * @param x = point of evaluation
+     * @return f(x)
+     */
+    double Function(double x) const;
 
     //Other public methods - 2 D
+    /**
+     * Set the number of partitions in 2D
+     * @param N = number of partitions in x dimension
+     * @param M = number of partitions in y dimension
+     */
     void SetNumberOfPartitions(const int N, const int M);
+
+    /**
+     * Set extremes of the domain in 2D
+     * @param x_a = first extreme in x dimension
+     * @param x_b = last extreme in x dimension
+     * @param x_c = first extreme in y dimension
+     * @param x_d = last extreme in y dimension
+     */
     void SetExtremes(const double x_a, const double x_b, const double x_c, const double x_d);
 
-    double Function(double x, double y) const; //returns the function evaluated at (x,y)
+    /**
+     * Evaluation of our function in 2D
+     * @param x = point of evaluation in x dimension
+     * @param y = point of evaluation in y dimension
+     * @return f(x,y)
+     */
+    double Function(double x, double y) const;
 
     // Pure virtual method "Integrate"
 
+    /**
+     * Pure virtual method to integrate (using the chosen numerical algorithm)
+     * @return the result of integration
+     */
     virtual double Integrate() = 0;
 
     // Get methods
@@ -62,7 +103,7 @@ public:
 
     double GetFirstExtreme() const { return x0; }
 
-    double GetStepSize() const { return (xN-x0)/(double)(N_partitions); }
+    double GetStepSize() const { return (xN-x0)/(double)(N_partitions); } ///< returns the step size if 1D (i.e., returns step size in x dimension)
 
     int GetNumberofPartitions() const {return N_partitions;}
 
@@ -76,9 +117,9 @@ public:
 
     double GetFirstExtremeY() const { return y0; }
 
-    double GetStepSizeX() const { return (xN-x0)/(double)(N_partitions); }
+    double GetStepSizeX() const { return (xN-x0)/(double)(N_partitions); } ///<returns the step size in x dimension
 
-    double GetStepSizeY() const { return (yM-y0)/(double)(M_partitions); }
+    double GetStepSizeY() const { return (yM-y0)/(double)(M_partitions); } ///<returns the step size in y dimension
 
     int GetNumberofPartitionsX() const {return N_partitions;}
 

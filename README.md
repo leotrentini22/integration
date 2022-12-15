@@ -50,9 +50,9 @@ Class of the methods to use in the main in order to set up the problem and run c
 ### Integrator
 Regroups the different numerical classes to integrate the function. Other integration methods can be implemented following the model of AbstractIntegrator.
 Available classes are:
-- `Midpoint integrator`
-- `Trapezoidal integrator`
-- `Cavalieri-Simpson integrator`
+- `MidpointIntegrator`
+- `TrapezoidalIntegrator`
+- `SimpsonIntegrator`
 
 ### Function
 Regroups the different classes to get the function from user. Other classes to get the function can be implemented following the model of AbstractFunction.

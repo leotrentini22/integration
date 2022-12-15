@@ -10,9 +10,7 @@ ParserFunction::~ParserFunction() noexcept {
 }
 
 void ParserFunction::SetFunction(int d) {
-    /**
-     * Get a function from a string inserted by the user
-     */
+
     while(true)
     {   if (d==1) {
             std::cin.ignore(1000, '\n');
@@ -59,9 +57,7 @@ void ParserFunction::SetFunction(int d) {
     }
 }
 double ParserFunction::getFunctionElement(double x) {
-    /**
-     * Evaluate the function (previously inserted) for a certain point x (1D)
-     */
+
     fparser->Parse(function, "x");
     //std::cout<< res<<std::endl;
     //if(res < 0) return 0.0;
@@ -71,9 +67,7 @@ double ParserFunction::getFunctionElement(double x) {
     return fparser->Eval(vals);}
 
 double ParserFunction::getFunctionElement(double x, double y) {
-    /**
-     * Evaluate the function (previously inserted) for a certain point with coordinates (x,y) (2D)
-     */
+
     fparser->Parse(function, "x,y");
     //std::cout<< res<<std::endl;
     //if(res < 0) return 0.0;

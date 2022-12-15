@@ -5,8 +5,8 @@
 #include <vector>
 
 /**
- * \class Abstract Function
- * \brief Abstract class of function, with 3 derived classes (ways of getting function from user)\n
+ * \class AbstractFunction
+ * \brief Abstract class of function, with 3 daughter classes (ways of getting function from user)\n
  * Only pure virtual methods
  */
 
@@ -27,15 +27,15 @@ public:
 
     /**
      * Pure virtual method to evaluate the function f(x) (1 dimension)
-     * @param x
+     * @param x = point of evaluation
      * @return f(x)
      */
     virtual double getFunctionElement(double x)=0;
 
     /**
      * Pure virtual method to evaluate the function f(x,y) (2 dimension)
-     * @param x
-     * @param y
+     * @param x = point of evaluation in x dimension
+     * @param y = point of evaluation in y dimension
      * @return f(x,y)
      */
     virtual double getFunctionElement(double x, double y)=0;

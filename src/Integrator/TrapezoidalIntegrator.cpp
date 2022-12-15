@@ -13,10 +13,6 @@ TrapezoidalIntegrator::~TrapezoidalIntegrator() {}
 //integration
 
 double TrapezoidalIntegrator::Integrate() {
-    /**
-     * Implements Trapezoidal integration in 1D and 2D
-     * \return result
-     */
 
     double x_first=GetFirstExtreme();
     double h=GetStepSize();

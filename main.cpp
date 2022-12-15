@@ -1,15 +1,16 @@
 /*! \file */
 
-/** Implementation of three different methods for the numerical computation of integrals in one or two dimensions
+/** Implementation of three different methods for the numerical computation of integrals in one or two dimensions\n
  * \f$
  * |I|=\left| \int_{\Omega} f(x,y) dxdy
  * \right|
  * \f$
- * Structure:
- * AbstractIntegrator = Abstract class of integrators, with 3 derived classes
- * MidpointIntegrator, TrapezoidalIntegrator, SimpsonIntegrator
- *
- * AbstractFunction = Abstract class of function, with 3 derived classes (ways of getting function from user)
+ * \n
+ * Structure:\n
+ * AbstractIntegrator = Abstract class of integrators, with 3 derived classes\n
+ * MidpointIntegrator, TrapezoidalIntegrator, SimpsonIntegrator\n
+ *\n
+ * AbstractFunction = Abstract class of function, with 3 derived classes (ways of getting function from user)\n
  * ForderFunction, ParserFunction, CodedFunction
  */
 

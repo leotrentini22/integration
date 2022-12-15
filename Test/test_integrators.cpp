@@ -21,8 +21,7 @@
 
 // Demonstrate the accuracy of integrators
 
-TEST(IntegratorTest, CorrectResult) {
-
+TEST(MidpointTest, CorrectResult) {
     // set a dummy domain 1D, with parameters
     double initialX=0.0, finalX=1.0;
     int N=1000;
@@ -41,7 +40,7 @@ TEST(IntegratorTest, CorrectResult) {
     pfunction = new CodedFunction;
     pfunction -> SetFunction(d);
 
-    // set the integrator -> at first the Midpoint integrator
+    // set the integrator -> Midpoint integrator
     AbstractIntegrator *pIntegration = 0;
 
     pIntegration = new MidpointIntegrator;
@@ -52,29 +51,6 @@ TEST(IntegratorTest, CorrectResult) {
 
 // TEST: expected to be close to the exact solution
     ASSERT_NEAR(pIntegration->Integrate(), result, tol);
-
-
-    // test the Trapezoidal Integrator
-    pIntegration = new TrapezoidalIntegrator;
-    pIntegration->SetNumberOfPartitions(N);
-    pIntegration->SetExtremes(initialX,finalX);
-
-    pIntegration->SetFunction(pfunction);
-
-// TEST: expected to be close to the exact solution
-    ASSERT_NEAR(pIntegration->Integrate(), result, tol);
-
-
-    // test the Simpson Integrator
-    pIntegration = new SimpsonIntegrator;
-    pIntegration->SetNumberOfPartitions(N);
-    pIntegration->SetExtremes(initialX,finalX);
-
-    pIntegration->SetFunction(pfunction);
-
-// TEST: expected to be close to the exact solution
-    ASSERT_NEAR(pIntegration->Integrate(), result, tol);
-
 
     //Test for 2D
     double initialY=0.0, finalY=1.0;
@@ -97,8 +73,54 @@ TEST(IntegratorTest, CorrectResult) {
 // TEST: expected to be close to the exact solution
     ASSERT_NEAR(pIntegration->Integrate(), result, tol);
 
+    delete pIntegration;
+    delete pfunction;
+}
 
-    //set the trapezoidal integrator in 2D
+
+TEST(TrapezoidalTest, CorrectResult) {
+// set a dummy domain 1D, with parameters
+    double initialX=0.0, finalX=1.0;
+    int N=1000;
+    int d=1;
+
+    //true known result
+    double result=0.5;
+
+    //tolerance
+    double tol=1e-3;
+
+
+    // set the function to integrate (an already coded one, with a well known primitive)
+    // In this case, we set it to be f(x)=x
+    AbstractFunction *pfunction;
+    pfunction = new CodedFunction;
+    pfunction -> SetFunction(d);
+
+    // set the integrator -> Trapezoidal integrator
+    AbstractIntegrator *pIntegration = 0;
+
+    pIntegration = new TrapezoidalIntegrator;
+    pIntegration->SetNumberOfPartitions(N);
+    pIntegration->SetExtremes(initialX,finalX);
+
+    pIntegration->SetFunction(pfunction);
+
+// TEST: expected to be close to the exact solution
+    ASSERT_NEAR(pIntegration->Integrate(), result, tol);
+
+    //Test for 2D
+    double initialY=0.0, finalY=1.0;
+    int M=1001;
+    N=1001;
+    d=2;
+    result=0.25;
+
+    //set the function as f(x,y)=x*y
+    pfunction = new CodedFunction;
+    pfunction -> SetFunction(d);
+
+    //set the midpoint integrator in 2D
     pIntegration = new TrapezoidalIntegrator;
     pIntegration->SetNumberOfPartitions(N,M);
     pIntegration->SetExtremes(initialX,finalX, initialY, finalY);
@@ -108,8 +130,53 @@ TEST(IntegratorTest, CorrectResult) {
 // TEST: expected to be close to the exact solution
     ASSERT_NEAR(pIntegration->Integrate(), result, tol);
 
+    delete pIntegration;
+    delete pfunction;
+}
 
-    //set the simpson integrator in 2D
+TEST(SimpsonTest,CorrectResult){
+    // set a dummy domain 1D, with parameters
+    double initialX=0.0, finalX=1.0;
+    int N=1000;
+    int d=1;
+
+    //true known result
+    double result=0.5;
+
+    //tolerance
+    double tol=1e-3;
+
+
+    // set the function to integrate (an already coded one, with a well known primitive)
+    // In this case, we set it to be f(x)=x
+    AbstractFunction *pfunction;
+    pfunction = new CodedFunction;
+    pfunction -> SetFunction(d);
+
+    // set the integrator -> Midpoint integrator
+    AbstractIntegrator *pIntegration = 0;
+
+    pIntegration = new SimpsonIntegrator;
+    pIntegration->SetNumberOfPartitions(N);
+    pIntegration->SetExtremes(initialX,finalX);
+
+    pIntegration->SetFunction(pfunction);
+
+// TEST: expected to be close to the exact solution
+    ASSERT_NEAR(pIntegration->Integrate(), result, tol);
+
+    //Test for 2D
+    double initialY=0.0, finalY=1.0;
+    int M=1001;
+    N=1001;
+    d=2;
+    result=0.25;
+
+    //set the function as f(x,y)=x*y
+    pfunction = new CodedFunction;
+    pfunction -> SetFunction(d);
+
+    //set the midpoint integrator in 2D
     pIntegration = new SimpsonIntegrator;
     pIntegration->SetNumberOfPartitions(N,M);
     pIntegration->SetExtremes(initialX,finalX, initialY, finalY);
@@ -119,4 +186,6 @@ TEST(IntegratorTest, CorrectResult) {
 // TEST: expected to be close to the exact solution
     ASSERT_NEAR(pIntegration->Integrate(), result, tol);
 
+    delete pIntegration;
+    delete pfunction;
 }

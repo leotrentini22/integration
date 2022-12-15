@@ -5,8 +5,9 @@
 #include "AbstractIntegrator.hpp"
 
 /**
- * Daughter class of AbstractIntegrator
- * it implements the trapezoidal integrator method (see Chapter 3 of Scientific Computing (Quarteroni, Saleri) for a mathematical explanation
+ * \class TrapezoidalIntegrator
+ * \brief Daughter class of AbstractIntegrator\n
+ * it implements the trapezoidal integrator method
  */
 
 class TrapezoidalIntegrator : public AbstractIntegrator {
@@ -14,6 +15,11 @@ public:
     TrapezoidalIntegrator();
     virtual ~TrapezoidalIntegrator();
 
+    /**
+     * virtual method, overriden from mother class AbstractIntegrator\n
+     * Implements trapezoidal integration in 1D and 2D
+     * \return result
+     */
     virtual double Integrate() override;
 };
 

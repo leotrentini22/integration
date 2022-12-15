@@ -5,7 +5,7 @@
 
 /**
  * \class Initialization
- * \brief Class made in order to make the main more readable
+ * \brief Class made in order to make the main more readable \n
  * It contains all the methods to print instructions to user, get inputs, run the calculation and print the result (either to the screen or into a file)
  */
 
