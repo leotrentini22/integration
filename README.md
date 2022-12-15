@@ -68,6 +68,10 @@ We implemented two different tests on our program.
 In `test_integrators` we evaluate the accuracy of our numerical methods using [Google Tests](http://google.github.io/googletest/), with a certain tolerance of precision.
 In `test_main` we check the validity of Initialization class, throughout a series of assertions that evaluate if, given wrong inputs by the user, our methods behave as expected.
 
+### Doxygen
+In `doxyfile`, we provide instructions in order to build a complete and documented html page for our project.
+To use it, first you need to install [Doxygen](https://www.doxygen.nl/download.html). Then open our `doxyfile` with Doxywizard (installed within Doxygen) and run.
+
 
 ## Possible developments
 Our program can be easily extended to more dimensions.
