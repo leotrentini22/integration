@@ -35,7 +35,7 @@ The repository contains the code and report for the Programming Concepts in Scie
 ```Bash
 git clone https://github.com/leotrentini22/integration.git
 ```
-2. Then, build and run `main.cpp` (with Clion or in the terminal) and follow the instructions on the screen
+2. Then, build and run `main.cpp` (with and IDE as [Clion](https://www.jetbrains.com/clion/), or in the terminal) and follow the instructions on the screen
 
 
 
