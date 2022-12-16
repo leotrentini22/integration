@@ -68,7 +68,7 @@ PROJECT_LOGO           =
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = "C:\Users\infos\OneDrive\Desktop\epfl\I semestre\pcsc\integration"
+OUTPUT_DIRECTORY       = ./doc
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
@@ -908,7 +908,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = "C:/Users/infos/OneDrive/Desktop/epfl/I semestre/pcsc/integration" \
+INPUT                  = . \
                          "C:/Users/infos/OneDrive/Desktop/epfl/I semestre/pcsc/integration/Test" \
                          "C:/Users/infos/OneDrive/Desktop/epfl/I semestre/pcsc/integration/src" \
                          "C:/Users/infos/OneDrive/Desktop/epfl/I semestre/pcsc/integration/src/Function" \
@@ -1039,7 +1039,7 @@ EXCLUDE_PATTERNS       =
 # Note that the wildcards are matched against the file with absolute path, so to
 # exclude all test directories use the pattern */test/*
 
-EXCLUDE_SYMBOLS        = System
+EXCLUDE_SYMBOLS        =
 
 # The EXAMPLE_PATH tag can be used to specify one or more files or directories
 # that contain example code fragments that are included (see the \include
@@ -2771,4 +2771,3 @@ GENERATE_LEGEND        = YES
 # The default value is: YES.
 
 DOT_CLEANUP            = YES
-DOT_TRANSPARENT        = YES
