@@ -35,11 +35,21 @@ The repository contains the code and report for the Programming Concepts in Scie
 ```Bash
 git clone https://github.com/leotrentini22/integration.git
 ```
-2. Then, build and run `main.cpp` (with Clion or in the terminal) and follow the instructions on the screen
+2. Then, build and run `main.cpp`. This can be done with and IDE (we used [Clion](https://www.jetbrains.com/clion/)), or directly in the terminal, by going to the folder where you cloned our repository and typing these commands:
+```Bash
+   mkdir build
+   cd build
+   cmake ..
+   make
+   ./main
+```
+   Then just follow the instructions on screen!
 
 
 
 ## Structure
+
+For a complete view of our work, please see the `Report`
 
 ### Main
 Interface with the user. All calculations are done here. It is written as concise as possible: all the set up is done in Initialization
