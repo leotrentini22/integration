@@ -15,16 +15,16 @@ SimpsonIntegrator::~SimpsonIntegrator() {}
 double SimpsonIntegrator::Integrate() {
 
     double x_first=GetFirstExtreme();
-    double h=GetStepSize();
-    double xold=x_first;
+    double h=GetStepSize();//Size of interval
+    double xold=x_first;//values of x that we need to evaluate the function
     double xnew=x_first+h;
-    int N=GetNumberofPartitionsX();
-    int M=GetNumberofPartitionsY();
+    int N=GetNumberofPartitionsX();// Number of partition on x
+    int M=GetNumberofPartitionsY();// Number of partition on y
     double sum = 0;
     // implementation 1D (M = partitions for y == 0)
     if(M==0) {
         for (int i = 0; i < N; i++) {
-            sum += Function(xold) + Function(xnew) + 4 * Function((xold + xnew) / 2);
+            sum += Function(xold) + Function(xnew) + 4 * Function((xold + xnew) / 2); //Function(x) gives the value of the function at x_eval
             xold = xnew;
             xnew = xnew + h;
         }
@@ -35,9 +35,9 @@ double SimpsonIntegrator::Integrate() {
 
     // implementation 2D
     double y_first=GetFirstExtremeY();
-    double k=GetStepSizeY();
+    double k=GetStepSizeY();// size of interval
     double yold;
-    double S=1.0;
+    double S=1.0; //Coefficient that "weight" the function depending on the position on the grid
     for (int i = 0; i < N+1; i++) {
         yold=y_first;
         for (int j = 0; j < M+1; j++){

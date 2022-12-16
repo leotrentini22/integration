@@ -46,7 +46,6 @@ git clone https://github.com/leotrentini22/integration.git
    Then just follow the instructions on screen!
 
 
-
 ## Structure
 
 For a complete view of our work, please see the `Report`
