@@ -909,10 +909,10 @@ WARN_LOGFILE           =
 # Note: If this tag is empty the current directory is searched.
 
 INPUT                  = . \
-                         "C:/Users/infos/OneDrive/Desktop/epfl/I semestre/pcsc/integration/Test" \
-                         "C:/Users/infos/OneDrive/Desktop/epfl/I semestre/pcsc/integration/src" \
-                         "C:/Users/infos/OneDrive/Desktop/epfl/I semestre/pcsc/integration/src/Function" \
-                         "C:/Users/infos/OneDrive/Desktop/epfl/I semestre/pcsc/integration/src/Integrator"
+                         "./Test" \
+                         "./src" \
+                         "./src/Function" \
+                         "./src/Integrator"
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
