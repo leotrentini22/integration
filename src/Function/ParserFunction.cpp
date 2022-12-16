@@ -25,12 +25,11 @@ void ParserFunction::SetFunction(int d) {
             }
 
             int res = fparser->Parse(function, "x");
-            //std::cout << res << std::endl;
+
             if (res < 0) break;
             std::cout << "\nError in building the function\nCheck if you have written the function correctly (check typos, variables...)\npress ENTER to retry\n";
 
-            //std::cout << std::string(res + 7, ' ') << "^\n"
-            //          << fparser->ErrorMsg() << "\n\n";
+
         }
         else if (d==2){
             std::cin.ignore(1000, '\n');
@@ -44,12 +43,10 @@ void ParserFunction::SetFunction(int d) {
             }
 
             int res = fparser->Parse(function, "x,y");
-            //std::cout << res << std::endl;
+
             if (res < 0) break;
             std::cout << "\nError in building the function\nCheck if you have written the function correctly (check typos, variables...)\npress ENTER to retry\n";
 
-            //std::cout << std::string(res + 7, ' ') << "^\n"
-            //          << fparser->ErrorMsg() << "\n\n";
         }
         else{
             std::cout<<"Error: dimension not 1 or 2";
@@ -59,20 +56,13 @@ void ParserFunction::SetFunction(int d) {
 double ParserFunction::getFunctionElement(double x) {
 
     fparser->Parse(function, "x");
-    //std::cout<< res<<std::endl;
-    //if(res < 0) return 0.0;
-    //std::cout << std::string(res+7, ' ') << "^\n"
-    //          << fparser->ErrorMsg() << "\n\n";
+
     double vals[] = { x };
     return fparser->Eval(vals);}
 
 double ParserFunction::getFunctionElement(double x, double y) {
 
     fparser->Parse(function, "x,y");
-    //std::cout<< res<<std::endl;
-    //if(res < 0) return 0.0;
-    //std::cout << std::string(res+7, ' ') << "^\n"
-    //          << fparser->ErrorMsg() << "\n\n";
     double vals[] = { x, y };
     return fparser->Eval(vals);
 }
